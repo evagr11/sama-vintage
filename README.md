@@ -59,10 +59,10 @@ La primera versión de **Sama Vintage** se desarrolló como proyecto académico 
 El proyecto se realizó en equipo junto a:
 
 <div align="center">
-  <a href="https://github.com/AnaNunezRejon" target="_blank">
+  <a ref="https://github.com/AnaNunezRejon" target="_blank">
     <img src="https://img.shields.io/badge/Ana_Nuñez-5A0F1B?style=for-the-badge&logo=github&logoColor=white"/>
   </a>
-  <a href="https://github.com/Anyeel" target="_blank">
+  <a ref="https://github.com/Anyeel" target="_blank">
     <img src="https://img.shields.io/badge/Ángel_Millán-C9A227?style=for-the-badge&logo=github&logoColor=white"/>
   </a>
 </div>
