@@ -37,7 +37,7 @@ El objetivo era construir un **ecommerce funcional sin frameworks**, utilizando 
 
 # 🧠 Contexto del Proyecto
 
-Este proyecto surge como parte del módulo **NDT (Nuevas Tecnologías de Desarrollo)** del segundo curso de **DAM**.
+Este proyecto surge como parte del módulo **SGE (Sistemas de gestión empresarial)** del segundo curso de **DAM**.
 
 El objetivo era realizar el **rebranding completo de una web real existente**:  
 **Sama Vintage**, una tienda de joyería vintage.
@@ -54,7 +54,7 @@ Este repositorio representa la **versión reconstruida en HTML, CSS y JavaScript
 
 # 👥 Proyecto Original (WordPress)
 
-La primera versión de **Sama Vintage** se desarrolló como proyecto académico en el módulo **NDT (Nuevas Tecnologías de Desarrollo)** del segundo curso de **DAM**.
+La primera versión de **Sama Vintage** se desarrolló como proyecto académico en el módulo **GE (Sistemas de gestión empresarial)** del segundo curso de **DAM**.
 
 El proyecto se realizó en equipo junto a:
 
