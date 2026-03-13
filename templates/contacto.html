@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Sama Vintage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/contacto.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <style>.trust-ribbon{background:#8B1E2D;color:rgba(255,255,255,.9);text-align:center;font-size:.72rem;letter-spacing:1px;padding:7px 0;display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;}</style>
+</head>
+<body>
+
+<div class="trust-ribbon">
+    <span>✦ Envío Seguro · Entrega en 2-3 días</span>
+    <span>✦ Devolución Gratuita · 30 días</span>
+    <span>✦ Autenticidad Garantizada</span>
+</div>
+
+<header class="sama-header" id="samaHeader">
+    <div class="header-container">
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button>
+        <div class="logo"><a href="../index.html"><div class="logo-icon">S</div><div class="logo-text"><span class="logo-name">SAMA VINTAGE</span><span class="logo-tagline">Joyas con Historia</span></div></a></div>
+        <nav class="main-nav" id="mainNav"><button class="menu-close" id="menuClose">×</button><ul class="nav-menu"><li><a href="../index.html">Inicio</a></li><li><a href="pendientes.html">Pendientes</a></li><li><a href="broches.html">Broches</a></li><li><a href="collares.html">Collares</a></li><li><a href="tienda.html">Ver todo</a></li><li><a href="contacto.html">Contacto</a></li></ul></nav>
+        <div class="header-actions">
+            <button class="icon-btn" onclick="toggleSearch()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607z"/></svg></button>
+            <a href="cuenta/perfil.html" class="icon-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0zM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></a>
+            <a href="carrito.html" class="icon-btn cart-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z"/></svg><span class="cart-count" id="cartCount">0</span></a>
+        </div>
+    </div>
+</header>
+<div class="search-overlay" id="searchOverlay"><div class="search-container"><button class="search-close" onclick="toggleSearch()">×</button><div class="search-form"><input type="text" class="search-input" id="searchInput" placeholder="Buscar joyas..."><button class="search-submit">Buscar</button></div></div></div>
+
+<main class="contact-page">
+    <div class="contact-hero">
+        <div class="contact-hero-content">
+            <p class="contact-hero-subtitle">Estamos aquí para ti</p>
+            <h1 class="contact-hero-title">Contáctanos</h1>
+            <p class="contact-hero-text">Resolvemos todas tus dudas sobre nuestras joyas vintage. Escríbenos y te responderemos en menos de 24 horas.</p>
+        </div>
+    </div>
+
+    <div class="contact-content">
+        <!-- Formulario -->
+        <div>
+            <h2 class="contact-section-title">Envíanos un mensaje</h2>
+            <div id="contactForm">
+                <div class="contact-form">
+                    <div class="form-group"><label for="nombre">Nombre completo</label><input type="text" id="nombre" placeholder="Tu nombre"></div>
+                    <div class="form-group"><label for="email">Email</label><input type="email" id="email" placeholder="tu@email.com"></div>
+                    <div class="form-group"><label for="asunto">Asunto</label><input type="text" id="asunto" placeholder="¿En qué podemos ayudarte?"></div>
+                    <div class="form-group"><label for="mensaje">Mensaje</label><textarea id="mensaje" placeholder="Cuéntanos más sobre lo que necesitas..."></textarea></div>
+                    <button class="btn-submit" onclick="enviarFormulario()">Enviar Mensaje</button>
+                </div>
+            </div>
+            <div id="formSuccess" style="display:none;background:#f0fdf4;border:1px solid #86efac;padding:2rem;border-radius:8px;text-align:center;">
+                <p style="font-size:2rem;margin-bottom:.75rem;">✉️</p>
+                <p style="font-weight:600;color:#166534;font-size:1.1rem;">¡Mensaje enviado!</p>
+                <p style="color:#166534;font-size:.875rem;margin-top:.5rem;">Esta es una demo de portfolio. En un sitio real, tu mensaje llegaría a nuestro equipo.</p>
+            </div>
+        </div>
+
+        <!-- Info -->
+        <div>
+            <h2 class="contact-section-title">Información de contacto</h2>
+            <div class="contact-info-list">
+                <div class="contact-info-item">
+                    <span class="contact-info-icon">📍</span>
+                    <div class="contact-info-content"><span class="contact-info-title">Dirección</span><p class="contact-info-text">Calle Serrano 45<br>28001 Madrid, España</p></div>
+                </div>
+                <div class="contact-info-item">
+                    <span class="contact-info-icon">📞</span>
+                    <div class="contact-info-content"><span class="contact-info-title">Teléfono</span><p class="contact-info-text"><a href="tel:+34912345678">+34 912 345 678</a></p></div>
+                </div>
+                <div class="contact-info-item">
+                    <span class="contact-info-icon">✉️</span>
+                    <div class="contact-info-content"><span class="contact-info-title">Email</span><p class="contact-info-text"><a href="mailto:hola@samavintage.com">hola@samavintage.com</a></p></div>
+                </div>
+                <div class="contact-info-item">
+                    <span class="contact-info-icon">🕐</span>
+                    <div class="contact-info-content"><span class="contact-info-title">Horario</span><p class="contact-info-text">Lun - Vie: 10:00 - 19:00<br>Sáb: 11:00 - 15:00</p></div>
+                </div>
+            </div>
+            <div class="boutique-box">
+                <h3 class="boutique-box-title">Visítanos en nuestra boutique</h3>
+                <p class="boutique-box-text">En nuestra tienda física podrás ver y tocar cada pieza. Nuestros especialistas te asesorarán personalmente.</p>
+                <span class="boutique-box-note">✓ Cita previa recomendada</span>
+            </div>
+            <div class="contact-map">
+                <iframe src="https://maps.google.com/maps?q=Calle+Serrano+45+Madrid&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        allowfullscreen="" loading="lazy" title="Ubicación Sama Vintage" style="width:100%;height:100%;border:none;"></iframe>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="sama-footer">
+    <div class="footer-top">
+        <div class="footer-brand"><h3>SAMA VINTAGE</h3><p>Diseños atemporales que cuentan historias.</p><div class="footer-social"><a href="#" class="social-link">📷</a><a href="#" class="social-link">f</a><a href="#" class="social-link">𝕏</a></div></div>
+        <div class="footer-column"><h4>Tienda</h4><ul class="footer-links"><li><a href="tienda.html">Todos los productos</a></li><li><a href="pendientes.html">Pendientes</a></li><li><a href="broches.html">Broches</a></li><li><a href="collares.html">Collares</a></li></ul></div>
+        <div class="footer-column footer-contact"><h4>Contacto</h4><p>📍 Calle Serrano 45, 28001 Madrid</p><p>✉️ hola@samavintage.com</p></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Sama Vintage. Todos los derechos reservados.</p><div class="footer-legal"><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos y Condiciones</a></div></div>
+</footer>
+<div class="trust-bar"><div class="trust-item"><span class="trust-icon">🛡️</span><div class="trust-content"><strong>Compra Segura</strong><p>Certificado de autenticidad</p></div></div><div class="trust-item"><span class="trust-icon">🚚</span><div class="trust-content"><strong>Envío Gratuito</strong><p>En pedidos superiores a €100</p></div></div><div class="trust-item"><span class="trust-icon">💳</span><div class="trust-content"><strong>Pago Flexible</strong><p>Múltiples opciones disponibles</p></div></div></div>
+
+<script src="../assets/js/header.js"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => actualizarContadorCarrito());
+function enviarFormulario() {
+    const n = document.getElementById('nombre').value.trim();
+    const e = document.getElementById('email').value.trim();
+    const m = document.getElementById('mensaje').value.trim();
+    if (!n || !e || !m) { alert('Por favor completa nombre, email y mensaje.'); return; }
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+}
+</script>
+</body>
+</html>

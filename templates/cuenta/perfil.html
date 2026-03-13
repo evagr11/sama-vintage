@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta - Sama Vintage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/footer.css">
+    <style>
+        .trust-ribbon{background:#8B1E2D;color:rgba(255,255,255,.9);text-align:center;font-size:.72rem;letter-spacing:1px;padding:7px 0;display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;}
+        /* Layout cuenta */
+        .account-page{max-width:1200px;margin:0 auto;padding:3rem 2rem;min-height:60vh;}
+        .demo-banner{background:#fef9c3;border-bottom:2px solid #fde047;padding:.75rem 1.5rem;text-align:center;font-size:.85rem;color:#854d0e;}
+        .account-layout{display:grid;grid-template-columns:260px 1fr;gap:2.5rem;align-items:start;}
+        /* Sidebar */
+        .account-sidebar{background:#fff;border-radius:10px;padding:1.5rem;box-shadow:0 2px 12px rgba(0,0,0,.06);position:sticky;top:90px;}
+        .account-avatar{display:flex;align-items:center;gap:1rem;padding-bottom:1.25rem;border-bottom:1px solid #f0f0f0;margin-bottom:1.25rem;}
+        .avatar-circle{width:50px;height:50px;border-radius:50%;background:#8B1E2D;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:1rem;flex-shrink:0;}
+        .avatar-name{font-size:.9rem;font-weight:500;color:#1a1a1a;}
+        .avatar-email{font-size:.75rem;color:#888;}
+        .account-nav{display:flex;flex-direction:column;gap:.2rem;}
+        .account-nav a{display:block;padding:.7rem 1rem;border-radius:6px;color:#444;font-size:.875rem;text-decoration:none;transition:all .2s;cursor:pointer;}
+        .account-nav a:hover{background:#faf8f5;color:#8B1E2D;}
+        .account-nav a.active{background:#fdf2f4;color:#8B1E2D;font-weight:500;}
+        .account-nav .nav-divider{height:1px;background:#f0f0f0;margin:.5rem 0;}
+        /* Contenido */
+        .account-content{background:#fff;border-radius:10px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+        .account-tab{display:none;}
+        .account-tab.active{display:block;}
+        .account-title{font-family:'Playfair Display',serif;color:#8B1E2D;font-size:1.5rem;font-weight:500;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid #f0f0f0;}
+        /* Formulario perfil */
+        .profile-form{max-width:480px;}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+        .form-field{margin-bottom:1.1rem;}
+        .form-field label{display:block;font-size:.75rem;font-weight:500;color:#555;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.4rem;}
+        .form-field input,.form-field select,.form-field textarea{width:100%;padding:.7rem .9rem;border:1.5px solid #e5e5e5;border-radius:5px;font-size:.875rem;font-family:'Inter',sans-serif;background:#fafafa;color:#333;}
+        .form-field input:focus{outline:none;border-color:#8B1E2D;background:#fff;}
+        /* Demo notice */
+        .demo-notice{background:#fef9c3;border:1px solid #fde047;border-radius:6px;padding:.875rem 1rem;font-size:.82rem;color:#854d0e;margin-top:1rem;}
+        /* Pedidos */
+        .orders-empty{text-align:center;padding:3rem;color:#888;}
+        .order-card{border:1px solid #eee;border-radius:8px;padding:1.25rem;margin-bottom:1.25rem;}
+        .order-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;}
+        .order-number{font-weight:600;color:#8B1E2D;font-size:.9rem;}
+        .order-date{font-size:.78rem;color:#888;display:block;margin-top:.15rem;}
+        .order-status{font-size:.72rem;padding:.3rem .75rem;border-radius:20px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;}
+        .status-entregado{background:#dcfce7;color:#166534;}
+        .status-proceso{background:#fef9c3;color:#854d0e;}
+        .order-item{display:flex;align-items:center;gap:1rem;padding:.75rem 0;border-bottom:1px solid #f5f5f5;}
+        .order-item:last-child{border-bottom:none;}
+        .order-item-thumb{width:56px;height:56px;background:#e8e2d9;border-radius:4px;object-fit:cover;flex-shrink:0;}
+        .order-item-name{flex:1;font-size:.85rem;color:#333;line-height:1.4;}
+        .order-item-price{font-weight:600;color:#8B1E2D;font-size:.9rem;}
+        .order-total{text-align:right;font-size:.82rem;color:#888;padding-top:.75rem;}
+        /* Direcciones */
+        .addresses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.25rem;}
+        .address-card{border:1px solid #eee;border-radius:8px;padding:1.25rem;position:relative;font-size:.85rem;color:#555;line-height:1.7;}
+        .address-card.primary{border-color:#8B1E2D;}
+        .address-primary-badge{position:absolute;top:-10px;left:1rem;background:#8B1E2D;color:#fff;font-size:.65rem;padding:.2rem .6rem;border-radius:10px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;}
+        .address-card h4{font-family:'Playfair Display',serif;color:#1a1a1a;font-size:.95rem;margin-bottom:.5rem;font-weight:500;}
+        .address-add{border:1.5px dashed #ddd;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;min-height:130px;color:#aaa;transition:all .2s;}
+        .address-add:hover{border-color:#8B1E2D;color:#8B1E2D;}
+        /* Pago */
+        .payment-card{display:flex;align-items:center;gap:1rem;border:1px solid #eee;border-radius:8px;padding:1.1rem;margin-bottom:1rem;}
+        .payment-icon{font-size:1.75rem;}
+        .payment-info p:first-child{font-size:.875rem;font-weight:500;color:#1a1a1a;}
+        .payment-info p:last-child{font-size:.75rem;color:#888;}
+        .payment-badge{margin-left:auto;font-size:.68rem;background:#dcfce7;color:#166534;padding:.25rem .6rem;border-radius:10px;font-weight:500;}
+        /* Config */
+        .config-group{margin-bottom:2rem;}
+        .config-group h3{font-family:'Playfair Display',serif;color:#444;font-size:1rem;margin-bottom:.75rem;font-weight:500;}
+        .config-item{display:flex;justify-content:space-between;align-items:center;padding:.875rem 0;border-bottom:1px solid #f5f5f5;}
+        .config-item:last-child{border-bottom:none;}
+        .config-item-label p:first-child{font-size:.875rem;font-weight:500;color:#1a1a1a;}
+        .config-item-label p:last-child{font-size:.75rem;color:#888;}
+        .toggle{position:relative;width:42px;height:22px;flex-shrink:0;}
+        .toggle input{opacity:0;width:0;height:0;}
+        .toggle-track{position:absolute;inset:0;background:#ddd;border-radius:22px;transition:.3s;cursor:not-allowed;}
+        .toggle-track::before{content:'';position:absolute;height:16px;width:16px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.3s;}
+        input:checked + .toggle-track{background:#8B1E2D;}
+        input:checked + .toggle-track::before{transform:translateX(20px);}
+        /* Responsive */
+        @media(max-width:768px){.account-layout{grid-template-columns:1fr;}.account-sidebar{position:static;}.form-row{grid-template-columns:1fr;}.account-page{padding:1.5rem 1rem;}}
+    </style>
+</head>
+<body>
+
+<div class="trust-ribbon">
+    <span>✦ Envío Seguro · Entrega en 2-3 días</span>
+    <span>✦ Devolución Gratuita · 30 días</span>
+    <span>✦ Autenticidad Garantizada</span>
+</div>
+
+<header class="sama-header" id="samaHeader">
+    <div class="header-container">
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button>
+        <div class="logo"><a href="../../index.html"><div class="logo-icon">S</div><div class="logo-text"><span class="logo-name">SAMA VINTAGE</span><span class="logo-tagline">Joyas con Historia</span></div></a></div>
+        <nav class="main-nav" id="mainNav"><button class="menu-close" id="menuClose">×</button><ul class="nav-menu"><li><a href="../../index.html">Inicio</a></li><li><a href="../pendientes.html">Pendientes</a></li><li><a href="../broches.html">Broches</a></li><li><a href="../collares.html">Collares</a></li><li><a href="../tienda.html">Ver todo</a></li><li><a href="../contacto.html">Contacto</a></li></ul></nav>
+        <div class="header-actions">
+            <button class="icon-btn" onclick="toggleSearch()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607z"/></svg></button>
+            <a href="perfil.html" class="icon-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0zM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></a>
+            <a href="../carrito.html" class="icon-btn cart-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z"/></svg><span class="cart-count" id="cartCount">0</span></a>
+        </div>
+    </div>
+</header>
+<div class="search-overlay" id="searchOverlay"><div class="search-container"><button class="search-close" onclick="toggleSearch()">×</button><div class="search-form"><input type="text" class="search-input" id="searchInput" placeholder="Buscar joyas..."><button class="search-submit">Buscar</button></div></div></div>
+
+<div class="demo-banner">
+    <strong>🎓 Demo de Portfolio:</strong> Sesión simulada. Los datos mostrados son ficticios y no se guardan ni procesan.
+</div>
+
+<main class="account-page">
+    <div class="account-layout">
+        <!-- SIDEBAR -->
+        <aside class="account-sidebar">
+            <div class="account-avatar">
+                <div class="avatar-circle">MG</div>
+                <div><p class="avatar-name">Admin User</p><p class="avatar-email">admin@ejemplo.com</p></div>
+            </div>
+            <nav class="account-nav">
+                <a href="#perfil"       class="active" onclick="return showTab('perfil',this)">👤 Mi Perfil</a>
+                <a href="#pedidos"      onclick="return showTab('pedidos',this)">📦 Mis Pedidos</a>
+                <a href="#direcciones"  onclick="return showTab('direcciones',this)">📍 Direcciones</a>
+                <a href="#pago"         onclick="return showTab('pago',this)">💳 Métodos de Pago</a>
+                <a href="#config"       onclick="return showTab('config',this)">⚙️ Configuración</a>
+                <div class="nav-divider"></div>
+                <a href="../tienda.html" style="color:#8B1E2D;">🛍️ Seguir comprando</a>
+            </nav>
+        </aside>
+
+        <!-- CONTENIDO -->
+        <div class="account-content">
+
+            <!-- PERFIL -->
+            <section id="tab-perfil" class="account-tab active">
+                <h2 class="account-title">Mi Perfil</h2>
+                <div class="profile-form">
+                    <div class="form-row">
+                        <div class="form-field"><label>Nombre</label><input type="text" value="Admin" readonly></div>
+                        <div class="form-field"><label>Apellidos</label><input type="text" value="User" readonly></div>
+                    </div>
+                    <div class="form-field"><label>Email</label><input type="email" value="admin@ejemplo.com" readonly></div>
+                    <div class="form-field"><label>Teléfono</label><input type="tel" value="+34 600 000 000" readonly></div>
+                    <div class="form-field"><label>Fecha de nacimiento</label><input type="date" value="1985-06-15" readonly></div>
+                </div>
+                <div class="demo-notice">⚠️ <strong>Demo:</strong> En un sitio real podrías editar y guardar tus datos. Los campos están bloqueados en esta versión de portfolio.</div>
+            </section>
+
+            <!-- PEDIDOS -->
+            <section id="tab-pedidos" class="account-tab">
+                <h2 class="account-title">Mis Pedidos</h2>
+                <div class="order-card">
+                    <div class="order-header">
+                        <div><span class="order-number">#SV-2026-001</span><span class="order-date">15 Enero 2026</span></div>
+                        <span class="order-status status-entregado">Entregado</span>
+                    </div>
+                    <div class="order-item">
+                        <div style="width:56px;height:56px;background:#E8E2D9;border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">💎</div>
+                        <span class="order-item-name">Broche Pavo Real</span>
+                        <span class="order-item-price">90,00 €</span>
+                    </div>
+                    <div class="order-total">Total del pedido: <strong>90,00 €</strong></div>
+                </div>
+                <div class="order-card">
+                    <div class="order-header">
+                        <div><span class="order-number">#SV-2026-002</span><span class="order-date">3 Febrero 2026</span></div>
+                        <span class="order-status status-proceso">En proceso</span>
+                    </div>
+                    <div class="order-item">
+                        <div style="width:56px;height:56px;background:#E8E2D9;border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">✨</div>
+                        <span class="order-item-name">Pendientes Dorados Con Perlas Colgantes Y Piedra Negra Y Roja</span>
+                        <span class="order-item-price">385,00 €</span>
+                    </div>
+                    <div class="order-item">
+                        <div style="width:56px;height:56px;background:#E8E2D9;border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">🌿</div>
+                        <span class="order-item-name">Colgante Dorado Nudo</span>
+                        <span class="order-item-price">890,00 €</span>
+                    </div>
+                    <div class="order-total">Total del pedido: <strong>1.275,00 €</strong></div>
+                </div>
+                <div class="demo-notice">⚠️ <strong>Demo:</strong> Los pedidos mostrados son ficticios para ilustrar la funcionalidad.</div>
+            </section>
+
+            <!-- DIRECCIONES -->
+            <section id="tab-direcciones" class="account-tab">
+                <h2 class="account-title">Mis Direcciones</h2>
+                <div class="addresses-grid">
+                    <div class="address-card primary">
+                        <span class="address-primary-badge">Principal</span>
+                        <h4>Casa</h4>
+                        <p>Admin User</p>
+                        <p>Calle Gran Vía 28, 3º B</p>
+                        <p>28013 Madrid, España</p>
+                        <p>+34 600 000 000</p>
+                    </div>
+                    <div class="address-card address-add" onclick="alert('Demo: En un sitio real aquí añadirías una nueva dirección.')">
+                        <span style="font-size:1.75rem;margin-bottom:.4rem;">+</span>
+                        <span style="font-size:.85rem;">Añadir dirección</span>
+                    </div>
+                </div>
+                <div class="demo-notice" style="margin-top:1.5rem;">⚠️ <strong>Demo:</strong> Las direcciones no se pueden editar en esta versión de portfolio.</div>
+            </section>
+
+            <!-- PAGO -->
+            <section id="tab-pago" class="account-tab">
+                <h2 class="account-title">Métodos de Pago</h2>
+                <div class="payment-card">
+                    <span class="payment-icon">💳</span>
+                    <div class="payment-info"><p>Visa •••• 4242</p><p>Vence: 12/2027</p></div>
+                    <span class="payment-badge">Principal</span>
+                </div>
+                <div class="demo-notice">⚠️ <strong>Demo de portfolio:</strong> No se pueden añadir ni guardar datos de tarjetas reales. Esta sección es meramente visual.</div>
+            </section>
+
+            <!-- CONFIGURACIÓN -->
+            <section id="tab-config" class="account-tab">
+                <h2 class="account-title">Configuración</h2>
+                <div class="config-group">
+                    <h3>Notificaciones por email</h3>
+                    <div class="config-item">
+                        <div class="config-item-label"><p>Novedades y promociones</p><p>Recibe noticias sobre nuevas colecciones</p></div>
+                        <label class="toggle"><input type="checkbox" checked disabled><span class="toggle-track"></span></label>
+                    </div>
+                    <div class="config-item">
+                        <div class="config-item-label"><p>Estado de pedidos</p><p>Actualizaciones sobre tus envíos</p></div>
+                        <label class="toggle"><input type="checkbox" checked disabled><span class="toggle-track"></span></label>
+                    </div>
+                    <div class="config-item">
+                        <div class="config-item-label"><p>Newsletter semanal</p><p>Contenido editorial sobre joyería vintage</p></div>
+                        <label class="toggle"><input type="checkbox" disabled><span class="toggle-track"></span></label>
+                    </div>
+                </div>
+                <div class="config-group">
+                    <h3>Privacidad</h3>
+                    <div class="config-item">
+                        <div class="config-item-label"><p>Cookies analíticas</p><p>Ayúdanos a mejorar la experiencia</p></div>
+                        <label class="toggle"><input type="checkbox" checked disabled><span class="toggle-track"></span></label>
+                    </div>
+                </div>
+                <div class="demo-notice">⚠️ <strong>Demo:</strong> La configuración no se guarda en esta versión de portfolio.</div>
+            </section>
+
+        </div>
+    </div>
+</main>
+
+<footer class="sama-footer">
+    <div class="footer-top">
+        <div class="footer-brand"><h3>SAMA VINTAGE</h3><p>Diseños atemporales que cuentan historias.</p><div class="footer-social"><a href="#" class="social-link">📷</a><a href="#" class="social-link">f</a><a href="#" class="social-link">𝕏</a></div></div>
+        <div class="footer-column"><h4>Tienda</h4><ul class="footer-links"><li><a href="../tienda.html">Todos los productos</a></li><li><a href="../pendientes.html">Pendientes</a></li><li><a href="../broches.html">Broches</a></li><li><a href="../collares.html">Collares</a></li></ul></div>
+        <div class="footer-column footer-contact"><h4>Contacto</h4><p>📍 Calle Serrano 45, 28001 Madrid</p><p>✉️ hola@samavintage.com</p></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Sama Vintage. Todos los derechos reservados.</p><div class="footer-legal"><a href="../privacidad.html">Política de Privacidad</a><a href="../terminos.html">Términos y Condiciones</a></div></div>
+</footer>
+<div class="trust-bar"><div class="trust-item"><span class="trust-icon">🛡️</span><div class="trust-content"><strong>Compra Segura</strong><p>Certificado de autenticidad</p></div></div><div class="trust-item"><span class="trust-icon">🚚</span><div class="trust-content"><strong>Envío Gratuito</strong><p>En pedidos superiores a €100</p></div></div><div class="trust-item"><span class="trust-icon">💳</span><div class="trust-content"><strong>Pago Flexible</strong><p>Múltiples opciones disponibles</p></div></div></div>
+
+<script src="../../assets/js/header.js"></script>
+<script src="../../assets/js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    actualizarContadorCarrito();
+    const hash = window.location.hash.replace('#','');
+    if (hash) {
+        const link = document.querySelector(`.account-nav a[href="#${hash}"]`);
+        if (link) showTab(hash, link);
+    }
+});
+
+function showTab(tabName, el) {
+    document.querySelectorAll('.account-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.account-nav a').forEach(a => a.classList.remove('active'));
+    const tab = document.getElementById('tab-' + tabName);
+    if (tab) tab.classList.add('active');
+    el.classList.add('active');
+    return false;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broches Vintage - Sama Vintage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/broches.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <style>.trust-ribbon{background:#8B1E2D;color:rgba(255,255,255,.9);text-align:center;font-size:.72rem;letter-spacing:1px;padding:7px 0;display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;}</style>
+</head>
+<body>
+
+<div class="trust-ribbon">
+    <span>✦ Envío Seguro · Entrega en 2-3 días</span>
+    <span>✦ Devolución Gratuita · 30 días</span>
+    <span>✦ Autenticidad Garantizada</span>
+</div>
+
+<header class="sama-header" id="samaHeader">
+    <div class="header-container">
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false">
+            <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+        <div class="logo"><a href="../index.html"><div class="logo-icon">S</div><div class="logo-text"><span class="logo-name">SAMA VINTAGE</span><span class="logo-tagline">Joyas con Historia</span></div></a></div>
+        <nav class="main-nav" id="mainNav">
+            <button class="menu-close" id="menuClose">×</button>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="pendientes.html">Pendientes</a></li>
+                <li><a href="broches.html">Broches</a></li>
+                <li><a href="collares.html">Collares</a></li>
+                <li><a href="tienda.html">Ver todo</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="icon-btn" onclick="toggleSearch()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607z"/></svg></button>
+            <a href="cuenta/perfil.html" class="icon-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0zM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></a>
+            <a href="carrito.html" class="icon-btn cart-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z"/></svg><span class="cart-count" id="cartCount">0</span></a>
+        </div>
+    </div>
+</header>
+<div class="search-overlay" id="searchOverlay"><div class="search-container"><button class="search-close" onclick="toggleSearch()">×</button><div class="search-form"><input type="text" class="search-input" id="searchInput" placeholder="Buscar joyas..."><button class="search-submit">Buscar</button></div></div></div>
+
+<main class="broches-page">
+    <div class="page-header">
+        <p class="page-subtitle">Piezas Únicas</p>
+        <h1 class="page-title">Broches Vintage</h1>
+        <p class="page-description">Broches antiguos que añaden un toque de distinción. Desde el Art Nouveau hasta el Art Déco, cada pieza es una obra maestra.</p>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+        <div style="grid-column:1/-1;text-align:center;padding:3rem;color:#999;font-size:.9rem;">Cargando colección...</div>
+    </div>
+
+    <div class="cta-banner">
+        <h2 class="cta-title">¿Buscas algo especial?</h2>
+        <p class="cta-text">Tenemos broches únicos que no están en línea. Contáctanos para descubrir piezas exclusivas de nuestra colección privada.</p>
+        <a href="contacto.html" class="btn-outline">Contactar Especialista</a>
+    </div>
+
+    <div class="features-section">
+        <div class="feature-item"><span class="icon">✨</span><h4>Autenticidad Garantizada</h4><p>Cada pieza viene con certificado de autenticidad</p></div>
+        <div class="feature-item"><span class="icon">🎁</span><h4>Empaque Premium</h4><p>Presentación elegante, perfecta para regalar</p></div>
+        <div class="feature-item"><span class="icon">💎</span><h4>Cuidado Profesional</h4><p>Servicio de limpieza y restauración gratuito</p></div>
+    </div>
+</main>
+
+<footer class="sama-footer">
+    <div class="footer-top">
+        <div class="footer-brand"><h3>SAMA VINTAGE</h3><p>Diseños atemporales que cuentan historias. Cada pieza es única y cuidadosamente seleccionada para ti.</p><div class="footer-social"><a href="#" class="social-link">📷</a><a href="#" class="social-link">f</a><a href="#" class="social-link">𝕏</a></div></div>
+        <div class="footer-column"><h4>Tienda</h4><ul class="footer-links"><li><a href="tienda.html">Todos los productos</a></li><li><a href="pendientes.html">Pendientes</a></li><li><a href="broches.html">Broches</a></li><li><a href="collares.html">Collares</a></li></ul></div>
+        <div class="footer-column"><h4>Información</h4><ul class="footer-links"><li><a href="cuenta/perfil.html">Mi Perfil</a></li><li><a href="contacto.html">Contacto</a></li><li><a href="privacidad.html">Privacidad</a></li></ul></div>
+        <div class="footer-column footer-contact"><h4>Contacto</h4><p>📍 Calle Serrano 45, 28001 Madrid</p><p>📞 +34 912 345 678</p><p>✉️ hola@samavintage.com</p></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Sama Vintage. Todos los derechos reservados.</p><div class="footer-legal"><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos y Condiciones</a></div></div>
+</footer>
+<div class="trust-bar"><div class="trust-item"><span class="trust-icon">🛡️</span><div class="trust-content"><strong>Compra Segura</strong><p>Certificado de autenticidad</p></div></div><div class="trust-item"><span class="trust-icon">🚚</span><div class="trust-content"><strong>Envío Gratuito</strong><p>En pedidos superiores a €100</p></div></div><div class="trust-item"><span class="trust-icon">💳</span><div class="trust-content"><strong>Pago Flexible</strong><p>Múltiples opciones disponibles</p></div></div></div>
+
+<script src="../assets/js/header.js"></script>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/header.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    Carrito._updateBadge();
+    const grid = document.getElementById('productGrid');
+    const productos = SAMA_PRODUCTOS.filter(p => p.categoria === 'broches');
+    if (!productos.length) {
+        grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:4rem;"><p style=\"font-family:\'Playfair Display\',serif;font-size:1.2rem;color:#8B1E2D;\">Próximamente más piezas</p></div>';
+        return;
+    }
+    grid.innerHTML = productos.map(p => `
+        <a class="product-card" href="producto.html?id=${p.id}">
+            <div class="product-image-box">
+                <img src="../assets/images/${p.img}" alt="${p.nombre}" onerror="this.src='../assets/images/placeholder.svg'">
+            </div>
+            <h3 class="product-title">${p.nombre}</h3>
+            <p class="product-price">${formatPrice(p.precio)}</p>
+        </a>`).join('');
+});
+function addToCart(id) { Carrito.add(id, 1); mostrarNotificacion('Añadido al carrito'); }
+</script>
+</body>
+</html>

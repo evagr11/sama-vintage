@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Sama Vintage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <style>
+        .trust-ribbon{background:#8B1E2D;color:rgba(255,255,255,.9);text-align:center;font-size:.72rem;letter-spacing:1px;padding:7px 0;display:flex;justify-content:center;gap:2.5rem;}
+        .demo-banner{background:#fef9c3;border-bottom:2px solid #fde047;padding:1rem 2rem;text-align:center;font-size:.88rem;color:#854d0e;}
+        .checkout-page{max-width:1100px;margin:0 auto;padding:3rem 2rem;}
+        .checkout-steps{display:flex;justify-content:center;gap:0;margin-bottom:3rem;counter-reset:step;}
+        .step{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:#aaa;text-transform:uppercase;letter-spacing:1px;}
+        .step.active{color:#8B1E2D;font-weight:500;}
+        .step.done{color:#48bb78;}
+        .step-num{width:28px;height:28px;border-radius:50%;border:1.5px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;}
+        .step-divider{width:40px;height:1px;background:#ddd;margin:0 .5rem;}
+        .checkout-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:start;}
+        .checkout-form-section h2{font-family:'Playfair Display',serif;color:#8B1E2D;font-size:1.4rem;font-weight:500;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid #eee;}
+        .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;}
+        .form-grid.full{grid-template-columns:1fr;}
+        .form-field{display:flex;flex-direction:column;gap:.4rem;}
+        .form-field label{font-size:.78rem;font-weight:500;color:#444;text-transform:uppercase;letter-spacing:.5px;}
+        .form-field input,.form-field select{padding:.75rem 1rem;border:1.5px solid #ddd;border-radius:4px;font-size:.9rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .3s;}
+        .form-field input:focus,.form-field select:focus{border-color:#8B1E2D;}
+        .checkout-section-divider{height:1px;background:#f0f0f0;margin:1.5rem 0;}
+        .payment-options{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.5rem;}
+        .payment-option{display:flex;align-items:center;gap:1rem;padding:1rem;border:1.5px solid #ddd;border-radius:4px;cursor:pointer;transition:border-color .3s;}
+        .payment-option:hover,.payment-option.selected{border-color:#8B1E2D;}
+        .payment-option input[type="radio"]{accent-color:#8B1E2D;}
+        .payment-label{font-size:.88rem;color:#333;}
+        .payment-icons{margin-left:auto;display:flex;gap:.35rem;font-size:.7rem;color:#888;}
+        .card-fields{display:none;padding:1rem;background:#fafafa;border-radius:4px;margin-top:.5rem;}
+        .card-fields.visible{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+        .btn-place-order{width:100%;padding:1.1rem;background:#8B1E2D;color:#fff;border:none;border-radius:4px;font-size:.88rem;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:background .3s;font-weight:500;margin-top:1rem;}
+        .btn-place-order:hover{background:#6B1521;}
+        /* Resumen */
+        .order-summary{background:#fafafa;border:1px solid #eee;border-radius:8px;padding:1.75rem;position:sticky;top:90px;}
+        .order-summary h2{font-family:'Playfair Display',serif;font-size:1.2rem;color:#1a1a1a;margin-bottom:1.5rem;font-weight:500;}
+        .summary-items{border-bottom:1px solid #eee;margin-bottom:1rem;padding-bottom:1rem;}
+        .summary-item{display:flex;gap:1rem;margin-bottom:1rem;align-items:center;}
+        .summary-item-img{width:60px;height:60px;background:#e8e2d9;border-radius:4px;flex-shrink:0;object-fit:cover;}
+        .summary-item-name{font-size:.85rem;color:#333;flex:1;line-height:1.4;}
+        .summary-item-price{font-size:.88rem;font-weight:600;color:#8B1E2D;}
+        .summary-line{display:flex;justify-content:space-between;font-size:.85rem;padding:.35rem 0;color:#666;}
+        .summary-line.total{font-size:1rem;font-weight:600;color:#1a1a1a;padding-top:.75rem;border-top:1.5px solid #eee;margin-top:.25rem;}
+        .secure-note{display:flex;align-items:center;gap:.5rem;font-size:.75rem;color:#888;margin-top:1rem;justify-content:center;}
+        /* Success modal */
+        .success-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;align-items:center;justify-content:center;}
+        .success-modal.show{display:flex;}
+        .success-card{background:#fff;border-radius:12px;padding:3rem;text-align:center;max-width:460px;margin:1rem;box-shadow:0 20px 60px rgba(0,0,0,.2);}
+        .success-icon{font-size:4rem;margin-bottom:1rem;}
+        .success-title{font-family:'Playfair Display',serif;font-size:1.75rem;color:#1a1a1a;margin-bottom:.75rem;}
+        .success-sub{color:#666;font-size:.9rem;line-height:1.6;margin-bottom:.5rem;}
+        .success-order{background:#faf8f5;border-radius:6px;padding:.75rem 1.25rem;font-size:.85rem;color:#8B1E2D;font-weight:500;margin:1rem 0;}
+        .success-note{font-size:.78rem;color:#aaa;margin-bottom:1.5rem;}
+        .btn-success{display:inline-block;padding:.85rem 2rem;background:#8B1E2D;color:#fff;border-radius:4px;font-size:.82rem;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:background .3s;}
+        .btn-success:hover{background:#6B1521;color:#fff;}
+        @media(max-width:768px){.checkout-layout{grid-template-columns:1fr;}.form-grid{grid-template-columns:1fr;}.checkout-steps{display:none;}}
+    </style>
+</head>
+<body>
+
+<div class="trust-ribbon">
+    <span>🔒 Pago 100% Seguro · SSL</span>
+    <span>✦ Autenticidad Garantizada</span>
+    <span>↩️ Devolución 30 días</span>
+</div>
+
+<header class="sama-header" id="samaHeader">
+    <div class="header-container">
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button>
+        <div class="logo"><a href="../index.html"><div class="logo-icon">S</div><div class="logo-text"><span class="logo-name">SAMA VINTAGE</span><span class="logo-tagline">Joyas con Historia</span></div></a></div>
+        <nav class="main-nav" id="mainNav"><button class="menu-close" id="menuClose">×</button><ul class="nav-menu"><li><a href="../index.html">Inicio</a></li><li><a href="tienda.html">Tienda</a></li><li><a href="contacto.html">Contacto</a></li></ul></nav>
+        <div class="header-actions"><a href="carrito.html" class="icon-btn cart-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z"/></svg><span class="cart-count" id="cartCount">0</span></a></div>
+    </div>
+</header>
+<div class="search-overlay" id="searchOverlay"><div class="search-container"><button class="search-close" onclick="toggleSearch()">×</button><div class="search-form"><input type="text" class="search-input" id="searchInput" placeholder="Buscar joyas..."><button class="search-submit">Buscar</button></div></div></div>
+
+<div class="demo-banner">
+    <strong>🎓 Demo de Portfolio:</strong> Este formulario es visual. Ningún dato se procesa ni se guarda. No introduzcas información real.
+</div>
+
+<main class="checkout-page">
+    <!-- STEPS -->
+    <div class="checkout-steps">
+        <div class="step done"><div class="step-num">✓</div><span>Carrito</span></div>
+        <div class="step-divider"></div>
+        <div class="step active"><div class="step-num">2</div><span>Datos</span></div>
+        <div class="step-divider"></div>
+        <div class="step"><div class="step-num">3</div><span>Confirmación</span></div>
+    </div>
+
+    <div class="checkout-layout">
+        <!-- FORMULARIO -->
+        <div class="checkout-form-section">
+            <!-- Datos personales -->
+            <h2>Datos de Envío</h2>
+            <div class="form-grid">
+                <div class="form-field"><label>Nombre</label><input type="text" placeholder="Admin" value="Admin"></div>
+                <div class="form-field"><label>Apellidos</label><input type="text" placeholder="User" value="User"></div>
+            </div>
+            <div class="form-grid full">
+                <div class="form-field"><label>Email</label><input type="email" placeholder="tu@email.com" value="admin@ejemplo.com"></div>
+            </div>
+            <div class="form-grid full">
+                <div class="form-field"><label>Dirección</label><input type="text" placeholder="Calle Gran Vía 28, 3º B" value="Calle Gran Vía 28, 3º B"></div>
+            </div>
+            <div class="form-grid">
+                <div class="form-field"><label>Ciudad</label><input type="text" placeholder="Madrid" value="Madrid"></div>
+                <div class="form-field"><label>Código Postal</label><input type="text" placeholder="28013" value="28013"></div>
+            </div>
+            <div class="form-grid">
+                <div class="form-field"><label>Provincia</label>
+                    <select><option>Madrid</option><option>Barcelona</option><option>Sevilla</option><option>Valencia</option></select>
+                </div>
+                <div class="form-field"><label>Teléfono</label><input type="tel" placeholder="+34 600 000 000" value="+34 600 000 000"></div>
+            </div>
+
+            <div class="checkout-section-divider"></div>
+
+            <!-- Pago -->
+            <h2>Método de Pago</h2>
+            <div class="payment-options">
+                <label class="payment-option selected" onclick="selectPayment(this,'card')">
+                    <input type="radio" name="payment" value="card" checked>
+                    <span class="payment-label">💳 Tarjeta de crédito / débito</span>
+                    <div class="payment-icons"><span>VISA</span><span>MC</span></div>
+                </label>
+                <label class="payment-option" onclick="selectPayment(this,'paypal')">
+                    <input type="radio" name="payment" value="paypal">
+                    <span class="payment-label">🅿️ PayPal</span>
+                </label>
+                <label class="payment-option" onclick="selectPayment(this,'bizum')">
+                    <input type="radio" name="payment" value="bizum">
+                    <span class="payment-label">📱 Bizum</span>
+                </label>
+            </div>
+
+            <!-- Campos tarjeta -->
+            <div class="card-fields visible" id="cardFields">
+                <div class="form-field" style="grid-column:1/-1;"><label>Número de tarjeta</label><input type="text" placeholder="•••• •••• •••• ••••" maxlength="19"></div>
+                <div class="form-field"><label>Caducidad</label><input type="text" placeholder="MM/AA" maxlength="5"></div>
+                <div class="form-field"><label>CVV</label><input type="text" placeholder="•••" maxlength="3"></div>
+                <div class="form-field" style="grid-column:1/-1;"><label>Titular</label><input type="text" placeholder="Nombre como aparece en la tarjeta" value="Admin User"></div>
+            </div>
+
+            <button class="btn-place-order" onclick="placeOrder()">
+                🔒 Confirmar Pedido
+            </button>
+        </div>
+
+        <!-- RESUMEN -->
+        <div class="order-summary">
+            <h2>Resumen del Pedido</h2>
+            <div class="summary-items" id="summaryItems">
+                <!-- Productos demo -->
+                <div class="summary-item">
+                    <div style="width:60px;height:60px;background:#E8E2D9;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;">💎</div>
+                    <span class="summary-item-name">Pendientes Dorados Con Perlas y Piedra Negra y Roja</span>
+                    <span class="summary-item-price">385,00 €</span>
+                </div>
+            </div>
+            <div class="summary-line"><span>Subtotal</span><span>385,00 €</span></div>
+            <div class="summary-line"><span>Envío</span><span style="color:#48bb78;">Gratis</span></div>
+            <div class="summary-line total"><span>Total</span><span>385,00 €</span></div>
+            <div class="secure-note">🔒 Pago seguro con encriptación SSL</div>
+        </div>
+    </div>
+</main>
+
+<!-- SUCCESS MODAL -->
+<div class="success-modal" id="successModal">
+    <div class="success-card">
+        <div class="success-icon">🎉</div>
+        <h2 class="success-title">¡Pedido Realizado!</h2>
+        <p class="success-sub">Gracias por tu confianza en Sama Vintage. Tu pedido ha sido recibido.</p>
+        <div class="success-order">Pedido #SV-2026-<?php echo rand(100,999); ?></div>
+        <p class="success-note">⚠️ Esta es una demo de portfolio. Ningún pedido real ha sido procesado ni cobrado.</p>
+        <a href="../index.html" class="btn-success">Volver a la Tienda</a>
+    </div>
+</div>
+
+<footer class="sama-footer">
+    <div class="footer-top">
+        <div class="footer-brand"><h3>SAMA VINTAGE</h3><p>Diseños atemporales que cuentan historias.</p></div>
+        <div class="footer-column"><h4>Tienda</h4><ul class="footer-links"><li><a href="tienda.html">Todos los productos</a></li></ul></div>
+        <div class="footer-column footer-contact"><h4>Contacto</h4><p>✉️ hola@samavintage.com</p></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Sama Vintage.</p></div>
+</footer>
+
+<script src="../assets/js/header.js"></script>
+<script>
+function selectPayment(el, type) {
+    document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    document.getElementById('cardFields').classList.toggle('visible', type === 'card');
+}
+
+function placeOrder() {
+    document.getElementById('successModal').classList.add('show');
+}
+</script>
+</body>
+</html>

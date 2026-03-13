@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sama Vintage - Joyas que Cuentan Historias</title>
+    <meta name="description" content="Descubre nuestra exclusiva colección de joyería vintage. Piezas únicas con historia, elegancia atemporal.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <style>
+        .trust-ribbon{background:#8B1E2D;color:rgba(255,255,255,.9);text-align:center;font-size:.72rem;letter-spacing:1px;padding:7px 0;display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;}
+        .hero{min-height:92vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;background:#FAF8F5;overflow:hidden;position:relative;}
+        .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(212,165,116,.18) 0%,transparent 70%);pointer-events:none;}
+        .hero-content{padding:5rem 4rem 5rem 6rem;z-index:1;}
+        .hero-label{display:inline-block;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:#8B1E2D;border:1px solid rgba(139,30,45,.3);padding:.4rem 1rem;border-radius:20px;margin-bottom:1.5rem;}
+        .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);line-height:1.1;color:#1a1a1a;margin-bottom:1.5rem;font-weight:400;}
+        .hero-title em{font-style:italic;color:#8B1E2D;}
+        .hero-subtitle{font-size:1rem;color:#666;line-height:1.8;max-width:440px;margin-bottom:2.5rem;}
+        .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;}
+        .btn-hero-p{padding:.9rem 2.2rem;background:#1a1a1a;color:#fff;border-radius:3px;font-size:.82rem;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:all .3s;font-weight:500;}
+        .btn-hero-p:hover{background:#8B1E2D;color:#fff;}
+        .btn-hero-s{padding:.9rem 2.2rem;border:1px solid #1a1a1a;color:#1a1a1a;border-radius:3px;font-size:.82rem;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:all .3s;}
+        .btn-hero-s:hover{background:#1a1a1a;color:#fff;}
+        .hero-stats{display:flex;gap:2rem;margin-top:3rem;padding-top:2rem;border-top:1px solid #e5e5e5;}
+        .stat-n{display:block;font-family:'Playfair Display',serif;font-size:1.8rem;color:#8B1E2D;font-weight:500;line-height:1;}
+        .stat-l{font-size:.72rem;color:#999;letter-spacing:1px;text-transform:uppercase;margin-top:.3rem;}
+        .hero-img{height:100%;background:#E8E2D9;overflow:hidden;}
+        .hero-img img{width:100%;height:100%;object-fit:cover;min-height:500px;}
+        .features-bar{background:#1a1a1a;padding:1.25rem 2rem;}
+        .features-bar-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;gap:4rem;flex-wrap:wrap;}
+        .fbar-item{display:flex;align-items:center;gap:.75rem;color:rgba(255,255,255,.8);}
+        .fbar-item span{font-size:1.1rem;}
+        .fbar-item strong{display:block;color:#fff;font-size:.82rem;font-weight:500;}
+        .fbar-item p{font-size:.78rem;letter-spacing:.5px;}
+        .s-eyebrow{display:block;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:#8B1E2D;margin-bottom:.75rem;}
+        .s-headline{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);color:#1a1a1a;font-weight:400;margin-bottom:.75rem;}
+        .s-sub{color:#888;font-size:.9rem;max-width:480px;margin:0 auto;}
+        .s-header{text-align:center;margin-bottom:3.5rem;}
+        .featured-section{padding:5rem 2rem;max-width:1300px;margin:0 auto;}
+        .products-grid-home{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:2rem;}
+        .pc-home{background:#fff;border-radius:4px;overflow:hidden;cursor:pointer;transition:transform .3s,box-shadow .3s;text-decoration:none;display:block;}
+        .pc-home:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.1);}
+        .pc-home .iw{position:relative;aspect-ratio:1;background:#F5F0E8;overflow:hidden;}
+        .pc-home .iw img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+        .pc-home:hover .iw img{transform:scale(1.05);}
+        .pc-home .badge{position:absolute;top:.8rem;left:.8rem;background:#8B1E2D;color:#fff;font-size:.6rem;padding:.25rem .65rem;letter-spacing:1px;text-transform:uppercase;border-radius:2px;}
+        .pc-home .cb{padding:1.25rem 1.25rem 1.5rem;}
+        .pc-home .cc{font-size:.67rem;letter-spacing:2px;text-transform:uppercase;color:#aaa;margin-bottom:.4rem;}
+        .pc-home .cn{font-family:'Playfair Display',serif;font-size:1rem;color:#1a1a1a;margin-bottom:.5rem;line-height:1.4;}
+        .pc-home .cp{font-size:1.1rem;font-weight:600;color:#8B1E2D;}
+        .view-all-w{text-align:center;margin-top:3rem;}
+        .btn-va{display:inline-block;padding:.85rem 2.5rem;border:1.5px solid #1a1a1a;color:#1a1a1a;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:3px;transition:all .3s;}
+        .btn-va:hover{background:#1a1a1a;color:#fff;}
+        .cats-section{background:#F5F0E8;padding:5rem 2rem;}
+        .cats-inner{max-width:1200px;margin:0 auto;}
+        .cats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;}
+        .cat-card{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:pointer;border-radius:4px;}
+        .cat-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s;}
+        .cat-card:hover img{transform:scale(1.06);}
+        .cat-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,rgba(0,0,0,.1) 60%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.75rem;}
+        .cat-ey{font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:.5rem;}
+        .cat-ti{font-family:'Playfair Display',serif;font-size:1.75rem;color:#fff;margin-bottom:.75rem;font-weight:400;}
+        .cat-lk{display:inline-block;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:2px;text-decoration:none;}
+        .about-strip{padding:5rem 2rem;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+        .about-img{aspect-ratio:4/5;background:#E8E2D9;border-radius:4px;overflow:hidden;}
+        .about-img img{width:100%;height:100%;object-fit:cover;}
+        .ab-title{font-family:'Playfair Display',serif;font-size:2.2rem;color:#1a1a1a;margin-bottom:1.25rem;line-height:1.3;font-weight:400;}
+        .ab-title em{color:#8B1E2D;font-style:italic;}
+        .ab-text{color:#666;font-size:.93rem;line-height:1.9;margin-bottom:1.75rem;}
+        .ab-feats{display:flex;flex-direction:column;gap:1rem;}
+        .ab-feat{display:flex;align-items:flex-start;gap:.85rem;}
+        .ab-icon{width:36px;height:36px;background:#FAF8F5;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;}
+        .ab-feat strong{display:block;font-size:.85rem;color:#1a1a1a;font-weight:500;margin-bottom:.15rem;}
+        .ab-feat span{font-size:.8rem;color:#888;}
+        .testi-section{background:#1a1a1a;padding:5rem 2rem;}
+        .testi-inner{max-width:1100px;margin:0 auto;}
+        .testi-section .s-eyebrow{color:rgba(212,165,116,.8);}
+        .testi-section .s-headline{color:#fff;}
+        .testi-section .s-sub{color:rgba(255,255,255,.5);}
+        .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+        .testi-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:2rem;}
+        .testi-stars{color:#D4A574;font-size:.85rem;margin-bottom:1rem;}
+        .testi-text{color:rgba(255,255,255,.75);font-size:.88rem;line-height:1.8;font-style:italic;margin-bottom:1.5rem;}
+        .testi-auth{display:flex;align-items:center;gap:.75rem;}
+        .auth-av{width:38px;height:38px;background:#8B1E2D;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78rem;color:#fff;font-weight:600;}
+        .auth-name{font-size:.85rem;color:#fff;font-weight:500;}
+        .auth-city{font-size:.75rem;color:rgba(255,255,255,.4);}
+        .nl-section{background:#FAF8F5;padding:5rem 2rem;text-align:center;}
+        .nl-inner{max-width:560px;margin:0 auto;}
+        .nl-title{font-family:'Playfair Display',serif;font-size:2rem;color:#1a1a1a;margin-bottom:.75rem;font-weight:400;}
+        .nl-sub{color:#888;font-size:.9rem;margin-bottom:2rem;line-height:1.6;}
+        .nl-form{display:flex;max-width:420px;margin:0 auto 1rem;}
+        .nl-input{flex:1;padding:.85rem 1.25rem;border:1.5px solid #ddd;border-right:none;border-radius:3px 0 0 3px;font-size:.88rem;outline:none;transition:border-color .3s;font-family:'Inter',sans-serif;}
+        .nl-input:focus{border-color:#8B1E2D;}
+        .nl-btn{padding:.85rem 1.75rem;background:#8B1E2D;color:#fff;border:none;border-radius:0 3px 3px 0;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:background .3s;font-weight:500;}
+        .nl-btn:hover{background:#6B1521;}
+        .nl-note{font-size:.75rem;color:#aaa;}
+        .nl-perks{display:flex;justify-content:center;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap;}
+        .nl-perk{font-size:.75rem;color:#888;}
+        .nl-perk::before{content:'✓ ';color:#8B1E2D;}
+        @media(max-width:1024px){.hero{grid-template-columns:1fr;min-height:auto;}.hero-content{padding:3rem 2rem;}.hero-img{display:none;}.cats-grid{grid-template-columns:1fr 1fr;}.about-strip{grid-template-columns:1fr;gap:2.5rem;}.testi-grid{grid-template-columns:1fr;}}
+        @media(max-width:768px){.cats-grid{grid-template-columns:1fr;}.hero-stats{gap:1.5rem;}.nl-form{flex-direction:column;}.nl-input{border-right:1.5px solid #ddd;border-bottom:none;border-radius:3px 3px 0 0;}.nl-btn{border-radius:0 0 3px 3px;}}
+    </style>
+</head>
+<body>
+
+<div class="trust-ribbon">
+    <span>✦ Envío Seguro · Entrega en 2-3 días</span>
+    <span>✦ Devolución Gratuita · 30 días</span>
+    <span>✦ Autenticidad Garantizada en cada pieza</span>
+</div>
+
+<header class="sama-header" id="samaHeader">
+    <div class="header-container">
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button>
+        <div class="logo"><a href="index.html"><div class="logo-icon">S</div><div class="logo-text"><span class="logo-name">SAMA VINTAGE</span><span class="logo-tagline">Joyas con Historia</span></div></a></div>
+        <nav class="main-nav" id="mainNav"><button class="menu-close" id="menuClose">×</button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="templates/pendientes.html">Pendientes</a></li>
+                <li><a href="templates/broches.html">Broches</a></li>
+                <li><a href="templates/collares.html">Collares</a></li>
+                <li><a href="templates/tienda.html">Ver todo</a></li>
+                <li><a href="templates/contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="icon-btn" onclick="toggleSearch()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607z"/></svg></button>
+            <a href="templates/cuenta/perfil.html" class="icon-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0zM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></a>
+            <a href="templates/carrito.html" class="icon-btn cart-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z"/></svg><span class="cart-count" id="cartCount">0</span></a>
+        </div>
+    </div>
+</header>
+<div class="search-overlay" id="searchOverlay"><div class="search-container"><button class="search-close" onclick="toggleSearch()">×</button><div class="search-form"><input type="text" class="search-input" id="searchInput" placeholder="Buscar joyas vintage..."><button class="search-submit" onclick="doSearch()">Buscar</button></div></div></div>
+
+<section class="hero">
+    <div class="hero-content">
+        <span class="hero-label">Nueva Colección 2026</span>
+        <h1 class="hero-title">Joyas que<br><em>Cuentan Historias</em></h1>
+        <p class="hero-subtitle">Donde cada joya es un testimonio del tiempo. Descubre piezas únicas que trascienden generaciones y conectan con tu esencia más auténtica.</p>
+        <div class="hero-ctas">
+            <a href="templates/tienda.html" class="btn-hero-p">Explorar Colección</a>
+            <a href="templates/broches.html" class="btn-hero-s">Ver Broches</a>
+        </div>
+        <div class="hero-stats">
+            <div><span class="stat-n">500+</span><p class="stat-l">Piezas Únicas</p></div>
+            <div><span class="stat-n">25+</span><p class="stat-l">Años Experiencia</p></div>
+            <div><span class="stat-n">100%</span><p class="stat-l">Autenticidad</p></div>
+        </div>
+    </div>
+    <div class="hero-img">
+        <img src="assets/images/PENDIENTES-DORADOS-CON-PERLAS-COLGANTES-Y-PIEDRA-NEGRA-Y-ROJA-2.png" alt="Sama Vintage" onerror="this.parentElement.style.background='linear-gradient(135deg,#E8E2D9,#D4C4A8)'">
+    </div>
+</section>
+
+<div class="features-bar">
+    <div class="features-bar-inner">
+        <div class="fbar-item"><span>📦</span><div><strong>Envío Premium</strong><p>Entrega en 24-48h</p></div></div>
+        <div class="fbar-item"><span>🔒</span><div><strong>Pago Seguro</strong><p>Encriptación SSL</p></div></div>
+        <div class="fbar-item"><span>↩️</span><div><strong>Devolución 30 Días</strong><p>Sin preguntas</p></div></div>
+        <div class="fbar-item"><span>✓</span><div><strong>Autenticidad Certificada</strong><p>Con certificado</p></div></div>
+    </div>
+</div>
+
+<section class="cats-section">
+    <div class="cats-inner">
+        <div class="s-header"><span class="s-eyebrow">Nuestra Colección</span><h2 class="s-headline">Explora por Categoría</h2></div>
+        <div class="cats-grid">
+            <div class="cat-card" onclick="location.href='templates/pendientes.html'">
+                <img src="assets/images/PENDIENTE-CIRCULAR-CON-PIEDRA-ROSA-NUDE-Y-FRANJA-DORADA-Y-CIRCULOS-DORADOS-1.png" alt="Pendientes" onerror="this.style.display='none'">
+                <div class="cat-ov"><span class="cat-ey">Elegancia Diaria</span><h3 class="cat-ti">Pendientes</h3><a href="templates/pendientes.html" class="cat-lk">Ver colección →</a></div>
+            </div>
+            <div class="cat-card" onclick="location.href='templates/broches.html'">
+                <img src="assets/images/BORCHE-MARIPOSA-DORADO-1.png" alt="Broches" onerror="this.style.display='none'">
+                <div class="cat-ov"><span class="cat-ey">Piezas de Autor</span><h3 class="cat-ti">Broches</h3><a href="templates/broches.html" class="cat-lk">Ver colección →</a></div>
+            </div>
+            <div class="cat-card" onclick="location.href='templates/collares.html'">
+                <img src="assets/images/COLGANTE-DORADO-NUDO-1.png" alt="Collares" onerror="this.style.display='none'">
+                <div class="cat-ov"><span class="cat-ey">Joyas Statement</span><h3 class="cat-ti">Collares</h3><a href="templates/collares.html" class="cat-lk">Ver colección →</a></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="featured-section">
+    <div class="s-header"><span class="s-eyebrow">Selección Exclusiva</span><h2 class="s-headline">Piezas Destacadas</h2><p class="s-sub">Nuestra curaduría de las piezas más especiales, seleccionadas por su historia.</p></div>
+    <div class="products-grid-home" id="destacadosGrid"></div>
+    <div class="view-all-w"><a href="templates/tienda.html" class="btn-va">Ver toda la colección →</a></div>
+</section>
+
+<section style="background:#fff;">
+    <div class="about-strip">
+        <div class="about-img"><img src="assets/images/PENDIENTES-DORADOS-CON-PERLAS-COLGANTES-Y-PIEDRA-NEGRA-Y-ROJA-2.png" alt="Nuestra historia" onerror="this.style.background='linear-gradient(135deg,#E8E2D9,#D4C4A8)'"></div>
+        <div>
+            <span class="s-eyebrow">Nuestra Historia</span>
+            <h2 class="ab-title">Donde la Elegancia se<br>Encuentra con <em>la Historia</em></h2>
+            <p class="ab-text">En Sama Vintage, creemos que cada joya es más que un simple accesorio. Es un testimonio de momentos preciosos, una conexión con el pasado y una promesa para el futuro.<br><br>Desde 2015, hemos curado cuidadosamente una colección excepcional de joyas vintage, cada pieza seleccionada por su autenticidad y belleza atemporal.</p>
+            <div class="ab-feats">
+                <div class="ab-feat"><div class="ab-icon">✨</div><div><strong>Exclusividad</strong><span>Cada pieza es única. No encontrarás dos iguales.</span></div></div>
+                <div class="ab-feat"><div class="ab-icon">♥</div><div><strong>Autenticidad</strong><span>Certificado de autenticidad con cada compra.</span></div></div>
+                <div class="ab-feat"><div class="ab-icon">⏱</div><div><strong>Atemporalidad</strong><span>Diseños que nunca pasan de moda.</span></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testi-section">
+    <div class="testi-inner">
+        <div class="s-header"><span class="s-eyebrow">Testimonios</span><h2 class="s-headline">Historias de Nuestros Clientes</h2></div>
+        <div class="testi-grid">
+            <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">«Compré un broche vintage para mi aniversario y no podría estar más enamorada. La calidad es excepcional.»</p><div class="testi-auth"><div class="auth-av">MG</div><div><p class="auth-name">María González</p><p class="auth-city">Madrid</p></div></div></div>
+            <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">«Sama Vintage tiene un gusto impecable. Cada joya es una obra de arte. El servicio al cliente es excepcional.»</p><div class="testi-auth"><div class="auth-av">CR</div><div><p class="auth-name">Carmen Ruiz</p><p class="auth-city">Barcelona</p></div></div></div>
+            <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">«He coleccionado joyas vintage durante años, y Sama Vintage es sin duda mi fuente favorita. Piezas únicas.»</p><div class="testi-auth"><div class="auth-av">IM</div><div><p class="auth-name">Isabel Martínez</p><p class="auth-city">Sevilla</p></div></div></div>
+        </div>
+    </div>
+</section>
+
+<section class="nl-section">
+    <div class="nl-inner">
+        <div style="font-size:2.5rem;margin-bottom:1.5rem;">🎁</div>
+        <h2 class="nl-title">Únete a Nuestra Comunidad</h2>
+        <p class="nl-sub">Recibe acceso exclusivo a nuevas colecciones y ofertas especiales. Primer pedido con 10% de descuento.</p>
+        <div class="nl-form"><input type="email" class="nl-input" id="nlEmail" placeholder="tu@email.com"><button class="nl-btn" onclick="subscribeNL()">Suscribirse</button></div>
+        <p class="nl-note">No compartimos tu información. Cancela cuando quieras.</p>
+        <div class="nl-perks"><span class="nl-perk">Acceso anticipado</span><span class="nl-perk">Ofertas exclusivas</span><span class="nl-perk">Regalo de bienvenida</span></div>
+    </div>
+</section>
+
+<footer class="sama-footer">
+    <div class="footer-top">
+        <div class="footer-brand"><h3>SAMA VINTAGE</h3><p>Diseños atemporales que cuentan historias. Cada pieza es única y cuidadosamente seleccionada para ti.</p><div class="footer-social"><a href="#" class="social-link">📷</a><a href="#" class="social-link">f</a><a href="#" class="social-link">𝕏</a></div></div>
+        <div class="footer-column"><h4>Tienda</h4><ul class="footer-links"><li><a href="templates/tienda.html">Todos los productos</a></li><li><a href="templates/pendientes.html">Pendientes</a></li><li><a href="templates/broches.html">Broches</a></li><li><a href="templates/collares.html">Collares</a></li></ul></div>
+        <div class="footer-column"><h4>Información</h4><ul class="footer-links"><li><a href="templates/cuenta/perfil.html">Mi Perfil</a></li><li><a href="templates/carrito.html">Mi Carrito</a></li><li><a href="templates/contacto.html">Contacto</a></li></ul></div>
+        <div class="footer-column footer-contact"><h4>Contacto</h4><p>📍 Calle Serrano 45, 28001 Madrid</p><p>📞 +34 912 345 678</p><p>✉️ hola@samavintage.com</p></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Sama Vintage. Todos los derechos reservados.</p><div class="footer-legal"><a href="templates/privacidad.html">Política de Privacidad</a><a href="templates/terminos.html">Términos y Condiciones</a></div></div>
+</footer>
+<div class="trust-bar"><div class="trust-item"><span class="trust-icon">🛡️</span><div class="trust-content"><strong>Compra Segura</strong><p>Certificado de autenticidad</p></div></div><div class="trust-item"><span class="trust-icon">🚚</span><div class="trust-content"><strong>Envío Gratuito</strong><p>En pedidos superiores a €100</p></div></div><div class="trust-item"><span class="trust-icon">💳</span><div class="trust-content"><strong>Pago Flexible</strong><p>Múltiples opciones disponibles</p></div></div></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/header.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Render destacados
+    const grid = document.getElementById('destacadosGrid');
+    const destacados = SAMA_PRODUCTOS.filter(p => p.destacado).slice(0, 8);
+    grid.innerHTML = destacados.map(p => `
+        <a class="pc-home" href="templates/producto.html?id=${p.id}">
+            <div class="iw">
+                <img src="${getImgPath(p.img)}" alt="${p.nombre}" onerror="this.src='assets/images/placeholder.svg'">
+                <span class="badge">Destacado</span>
+            </div>
+            <div class="cb">
+                <p class="cc">${p.categoria}</p>
+                <h3 class="cn">${p.nombre}</h3>
+                <p class="cp">${formatPrice(p.precio)}</p>
+            </div>
+        </a>
+    `).join('');
+});
+
+function doSearch() {
+    const q = document.getElementById('searchInput').value.trim();
+    if (q) location.href = `templates/tienda.html?q=${encodeURIComponent(q)}`;
+}
+document.addEventListener('DOMContentLoaded', () => {
+    const si = document.getElementById('searchInput');
+    if (si) si.addEventListener('keydown', e => { if(e.key==='Enter') doSearch(); });
+});
+
+function subscribeNL() {
+    const v = document.getElementById('nlEmail').value.trim();
+    if (!v || !v.includes('@')) { alert('Introduce un email válido.'); return; }
+    mostrarNotificacion('¡Suscrito! (Demo de portfolio)');
+    document.getElementById('nlEmail').value = '';
+}
+</script>
+</body>
+</html>
