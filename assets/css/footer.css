@@ -1,0 +1,313 @@
+/**
+ * SAMA VINTAGE - Footer
+ * Pie de página con marca, navegación, contacto y barra de confianza
+ * Versión: 1.0.0
+ */
+
+/* ============================================
+   WRAPPER PRINCIPAL
+   ============================================ */
+
+.sama-footer {
+    --footer-primary: #8B1E2D;
+    --footer-primary-light: rgba(139, 30, 45, 0.1);
+    --footer-white: #FFFFFF;
+    --footer-text: rgba(255, 255, 255, 0.7);
+    --footer-text-light: rgba(255, 255, 255, 0.5);
+    --footer-border: rgba(255, 255, 255, 0.1);
+    
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    
+    background: var(--footer-primary);
+    color: var(--footer-white);
+    padding: 3.75rem 2.5rem 1.875rem;
+    margin-top: 5rem;
+    font-family: var(--font-sans);
+}
+
+/* ============================================
+   CONTENIDO PRINCIPAL DEL FOOTER
+   ============================================ */
+
+.footer-top {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 3.75rem;
+    padding-bottom: 3.125rem;
+    border-bottom: 1px solid var(--footer-border);
+}
+
+/* ============================================
+   COLUMNA: MARCA
+   ============================================ */
+
+.footer-brand h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.footer-brand p {
+    color: var(--footer-text);
+    font-size: 0.875rem;
+    line-height: 1.8;
+    margin-bottom: 1.5625rem;
+    max-width: 300px;
+}
+
+/* Redes sociales */
+.footer-social {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.social-link {
+    width: 2.625rem;
+    height: 2.625rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--footer-white);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.social-link:hover {
+    background: var(--footer-white);
+    color: var(--footer-primary);
+    transform: translateY(-2px);
+    border-color: var(--footer-white);
+}
+
+/* ============================================
+   COLUMNAS: NAVEGACIÓN
+   ============================================ */
+
+.footer-column h4 {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5625rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+    color: var(--footer-text);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--footer-white);
+    transform: translateX(3px);
+}
+
+/* ============================================
+   COLUMNA: CONTACTO
+   ============================================ */
+
+.footer-contact p {
+    color: var(--footer-text);
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.footer-contact p:last-of-type {
+    margin-top: 0.9375rem;
+    font-size: 0.8125rem;
+}
+
+/* ============================================
+   FOOTER BOTTOM
+   ============================================ */
+
+.footer-bottom {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: 1.875rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8125rem;
+    color: var(--footer-text-light);
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 1.875rem;
+}
+
+.footer-legal a {
+    color: var(--footer-text-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-legal a:hover {
+    color: var(--footer-white);
+}
+
+/* ============================================
+   BARRA DE CONFIANZA (TRUST BAR)
+   ============================================ */
+
+.trust-bar {
+    background: var(--footer-primary);
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+    padding: 1.5625rem 2.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    border-top: 1px solid var(--footer-border);
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.9375rem;
+    color: var(--footer-white);
+}
+
+.trust-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.trust-content strong {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.1875rem;
+}
+
+.trust-content p {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .sama-footer {
+        padding: 3rem 1.875rem 1.5rem;
+        margin-top: 3.75rem;
+    }
+    
+    .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+        padding-bottom: 2.5rem;
+    }
+    
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+    
+    .footer-brand p {
+        max-width: 100%;
+    }
+    
+    .trust-bar {
+        gap: 2.5rem;
+        padding: 1.25rem 1.875rem;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 768px) {
+    .sama-footer {
+        padding: 2.5rem 1.25rem 1.25rem;
+        margin-top: 2.5rem;
+        text-align: center;
+    }
+    
+    .footer-top {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+    }
+    
+    .footer-social {
+        justify-content: center;
+    }
+    
+    .footer-links a:hover {
+        transform: none;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.25rem;
+        text-align: center;
+    }
+    
+    .footer-legal {
+        gap: 1.25rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .trust-bar {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.5rem 1.25rem;
+    }
+    
+    .trust-item {
+        text-align: center;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sama-footer {
+        padding: 2rem 1rem 1rem;
+    }
+    
+    .footer-brand h3 {
+        font-size: 1.25rem;
+    }
+    
+    .footer-column h4 {
+        font-size: 0.75rem;
+    }
+    
+    .footer-links a {
+        font-size: 0.8125rem;
+    }
+    
+    .trust-bar {
+        padding: 1.25rem 1rem;
+    }
+}

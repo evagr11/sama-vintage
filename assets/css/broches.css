@@ -1,0 +1,270 @@
+/**
+ * SAMA VINTAGE - Broches
+ * Estilos específicos para la página de categoría Broches
+ * Versión: 1.0.0
+ */
+
+/* ============================================
+   WRAPPER PRINCIPAL (AISLADO)
+   ============================================ */
+
+.broches-page {
+    --primary-color: #9d2531;
+    --primary-hover: #7a1d26;
+    --text-dark: #333333;
+    --text-muted: #666666;
+    --bg-light: #fdfaf7;
+    --bg-grey: #e8e9ec;
+    
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Inter', sans-serif;
+    
+    font-family: var(--font-sans);
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding-top: 3rem;
+}
+
+.broches-page * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================================
+   HEADER DE PÁGINA
+   ============================================ */
+
+.broches-page .page-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 0 1rem;
+}
+
+.broches-page .page-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.broches-page .page-title {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.broches-page .page-description {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   GRID DE PRODUCTOS (3 Columnas)
+   ============================================ */
+
+.broches-page .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 4rem auto;
+    padding: 0 2rem;
+}
+
+.broches-page .product-card {
+    text-align: left;
+    text-decoration: none;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.broches-page .product-card:hover {
+    transform: translateY(-5px);
+}
+
+.broches-page .product-image-box {
+    background-color: var(--bg-grey);
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin-bottom: 1.2rem;
+    overflow: hidden;
+}
+
+.broches-page .product-image-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    transition: transform 0.4s ease;
+}
+
+.broches-page .product-card:hover .product-image-box img {
+    transform: scale(1.05);
+}
+
+.broches-page .product-title {
+    font-family: var(--font-serif);
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.broches-page .product-price {
+    font-family: var(--font-sans);
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.broches-page .price-old {
+    text-decoration: line-through;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-left: 0.5rem;
+    font-weight: 400;
+}
+
+/* ============================================
+   BANNER CTA: ¿BUSCAS ALGO ESPECIAL?
+   ============================================ */
+
+.broches-page .cta-banner {
+    background-color: var(--bg-light);
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto 4rem auto;
+}
+
+.broches-page .cta-title {
+    font-family: var(--font-serif);
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.broches-page .cta-text {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.broches-page .btn-outline {
+    display: inline-block;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.8rem 2.5rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: transparent;
+    cursor: pointer;
+    font-family: var(--font-sans);
+}
+
+.broches-page .btn-outline:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+/* ============================================
+   SECCIÓN DE BENEFICIOS
+   ============================================ */
+
+.broches-page .features-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto 4rem auto;
+    padding: 0 2rem;
+}
+
+.broches-page .feature-item .icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+    line-height: 1;
+}
+
+.broches-page .feature-item h4 {
+    font-family: var(--font-serif);
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.broches-page .feature-item p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 900px) {
+    .broches-page .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 0 1.5rem;
+    }
+    
+    .broches-page .features-section {
+        gap: 1.5rem;
+        padding: 0 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .broches-page {
+        padding-top: 2rem;
+    }
+    
+    .broches-page .page-title {
+        font-size: 2rem;
+    }
+    
+    .broches-page .product-grid,
+    .broches-page .features-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .broches-page .cta-banner {
+        padding: 3rem 1.5rem;
+        margin: 0 1rem 3rem 1rem;
+    }
+    
+    .broches-page .cta-title {
+        font-size: 1.5rem;
+    }
+    
+    .broches-page .btn-outline {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .broches-page .product-image-box {
+        padding: 1.5rem;
+    }
+}

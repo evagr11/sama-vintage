@@ -1,0 +1,1165 @@
+/**
+ * SAMA VINTAGE - Sistema de Cuenta
+ * Estilos para Mi Perfil, Pedidos, Direcciones, Métodos de Pago y Configuración
+ * Versión: 1.0.0
+ */
+
+/* ============================================
+   WRAPPER PRINCIPAL
+   ============================================ */
+
+.account-page {
+    --account-primary: #8B1E2D;
+    --account-primary-dark: #6B1521;
+    --account-secondary: #D4A574;
+    --account-bg: #FAF8F5;
+    --account-white: #FFFFFF;
+    --account-text: #2C2C2C;
+    --account-text-light: #666666;
+    --account-border: #E5E5E5;
+    --account-success: #48bb78;
+    --account-warning: #ed8936;
+    --account-error: #f56565;
+    
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2.5rem;
+    font-family: var(--font-sans);
+    color: var(--account-text);
+}
+
+/* ============================================
+   SIDEBAR - MENÚ DE CUENTA
+   ============================================ */
+
+.account-sidebar {
+    background: var(--account-white);
+    border-radius: 8px;
+    padding: 1.875rem;
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Info del usuario */
+.account-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--account-border);
+    margin-bottom: 1.5rem;
+}
+
+.account-avatar {
+    width: 60px;
+    height: 60px;
+    background: var(--account-primary);
+    color: var(--account-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.account-user-info h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem 0;
+    color: var(--account-text);
+}
+
+.account-user-info p {
+    font-size: 0.75rem;
+    color: var(--account-text-light);
+    margin: 0;
+}
+
+/* Menú de navegación */
+.account-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.account-nav li {
+    margin-bottom: 0.25rem;
+}
+
+.account-nav a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: var(--account-text);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.account-nav a:hover {
+    background: rgba(139, 30, 45, 0.08);
+    color: var(--account-primary);
+}
+
+.account-nav a.active {
+    background: var(--account-primary);
+    color: var(--account-white);
+    box-shadow: 0 4px 12px rgba(139, 30, 45, 0.25);
+}
+
+.account-nav-icon {
+    font-size: 1.125rem;
+    width: 1.5rem;
+    text-align: center;
+    line-height: 1;
+}
+
+/* Logout */
+.account-logout {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--account-border);
+}
+
+.account-logout a {
+    color: var(--account-primary);
+}
+
+.account-logout a:hover {
+    background: transparent;
+    color: var(--account-primary-dark);
+    text-decoration: underline;
+}
+
+/* ============================================
+   CONTENIDO PRINCIPAL
+   ============================================ */
+
+.account-main {
+    background: var(--account-white);
+    border-radius: 8px;
+    padding: 2.5rem;
+    min-height: 600px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Header de página */
+.account-header {
+    margin-bottom: 1.875rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--account-border);
+}
+
+.account-header h1 {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--account-primary);
+    margin: 0 0 0.5rem 0;
+}
+
+.account-header p {
+    color: var(--account-text-light);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* ============================================
+   TARJETAS DE SECCIÓN
+   ============================================ */
+
+.account-card {
+    background: var(--account-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.account-card:last-child {
+    margin-bottom: 0;
+}
+
+.account-card-title {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    margin: 0 0 1.25rem 0;
+    color: var(--account-text);
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-weight: 600;
+}
+
+/* ============================================
+   FORMULARIOS
+   ============================================ */
+
+.form-row {
+    margin-bottom: 1.25rem;
+}
+
+.form-row-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--account-text);
+}
+
+.form-input,
+.form-select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--account-border);
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-family: var(--font-sans);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: var(--account-white);
+}
+
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--account-primary);
+    box-shadow: 0 0 0 3px rgba(139, 30, 45, 0.1);
+}
+
+.form-input::placeholder {
+    color: var(--account-text-light);
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+
+.account-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 6px;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: none;
+    font-family: var(--font-sans);
+}
+
+.account-btn-primary {
+    background: var(--account-primary);
+    color: var(--account-white);
+}
+
+.account-btn-primary:hover {
+    background: var(--account-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(139, 30, 45, 0.3);
+}
+
+.account-btn-secondary {
+    background: transparent;
+    color: var(--account-primary);
+    border: 1px solid var(--account-primary);
+}
+
+.account-btn-secondary:hover {
+    background: var(--account-primary);
+    color: var(--account-white);
+}
+
+.account-btn-small {
+    padding: 0.625rem 1.5rem;
+    font-size: 0.8125rem;
+}
+
+.account-btn-danger {
+    background: transparent;
+    color: var(--account-error);
+    border: 1px solid var(--account-error);
+}
+
+.account-btn-danger:hover {
+    background: var(--account-error);
+    color: var(--account-white);
+}
+
+/* ============================================
+   PÁGINA: MI PERFIL
+   ============================================ */
+
+.profile-photo {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.profile-photo .account-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+}
+
+.profile-photo-info p {
+    margin: 0 0 0.625rem 0;
+    color: var(--account-text-light);
+    font-size: 0.875rem;
+}
+
+.profile-photo-info p:first-child {
+    color: var(--account-text);
+    font-weight: 500;
+}
+
+.profile-photo-hint {
+    font-size: 0.75rem;
+    color: var(--account-text-light);
+    margin-bottom: 1rem;
+}
+
+/* Preferencias */
+.preferences-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.preference-item select {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+/* Toggle switches */
+.toggle-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toggle-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--account-border);
+}
+
+.toggle-item:last-child {
+    border-bottom: none;
+}
+
+.toggle-info h4 {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem 0;
+    color: var(--account-text);
+}
+
+.toggle-info p {
+    font-size: 0.8125rem;
+    color: var(--account-text-light);
+    margin: 0;
+}
+
+/* Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .slider {
+    background-color: var(--account-primary);
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+/* ============================================
+   PÁGINA: PEDIDOS
+   ============================================ */
+
+.orders-tabs {
+    display: flex;
+    gap: 0.625rem;
+    margin-bottom: 1.875rem;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 0.625rem 1.5rem;
+    background: transparent;
+    border: 1px solid var(--account-border);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    color: var(--account-text);
+    font-family: var(--font-sans);
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+    background: var(--account-primary);
+    color: var(--account-white);
+    border-color: var(--account-primary);
+}
+
+/* Tarjeta de pedido */
+.order-card {
+    border: 1px solid var(--account-border);
+    border-radius: 12px;
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+
+.order-card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.order-header {
+    background: var(--account-bg);
+    padding: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.order-info h4 {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    margin: 0 0 0.375rem 0;
+    color: var(--account-text);
+}
+
+.order-info p {
+    font-size: 0.8125rem;
+    color: var(--account-text-light);
+    margin: 0;
+}
+
+.order-status {
+    padding: 0.5rem 1.25rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-delivered {
+    background: #c6f6d5;
+    color: #22543d;
+}
+
+.status-transit {
+    background: #feebc8;
+    color: #744210;
+}
+
+.status-processing {
+    background: #bee3f8;
+    color: #2a4365;
+}
+
+.status-cancelled {
+    background: #fed7d7;
+    color: #742a2a;
+}
+
+.order-body {
+    padding: 1.25rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+}
+
+.order-image {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--account-border);
+    flex-shrink: 0;
+}
+
+.order-details {
+    flex: 1;
+}
+
+.order-details h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: var(--account-text);
+}
+
+.order-details p {
+    font-size: 0.8125rem;
+    color: var(--account-text-light);
+    margin: 0;
+}
+
+.order-price {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--account-primary);
+}
+
+.order-actions {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid var(--account-border);
+    display: flex;
+    gap: 0.9375rem;
+    flex-wrap: wrap;
+}
+
+/* Pedidos vacío */
+.orders-empty {
+    text-align: center;
+    padding: 3rem;
+    color: var(--account-text-light);
+}
+
+.orders-empty a {
+    color: var(--account-primary);
+    text-decoration: underline;
+}
+
+/* ============================================
+   PÁGINA: DIRECCIONES
+   ============================================ */
+
+.addresses-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+
+.addresses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+}
+
+.address-card {
+    border: 1px solid var(--account-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+    transition: all 0.3s;
+    background: var(--account-white);
+}
+
+.address-card:hover {
+    border-color: var(--account-primary);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.address-card.default {
+    border-left: 4px solid var(--account-primary);
+    background: var(--account-bg);
+}
+
+.address-badge {
+    display: inline-block;
+    padding: 0.375rem 0.875rem;
+    background: var(--account-primary);
+    color: var(--account-white);
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 20px;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.address-card h4 {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem 0;
+    color: var(--account-text);
+}
+
+.address-text {
+    font-size: 0.875rem;
+    color: var(--account-text-light);
+    line-height: 1.8;
+    margin: 0;
+}
+
+.address-actions {
+    margin-top: 1.25rem;
+    display: flex;
+    gap: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--account-border);
+}
+
+.address-actions a {
+    font-size: 0.8125rem;
+    color: var(--account-primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.address-actions a:hover {
+    transform: translateX(3px);
+}
+
+.address-actions .delete {
+    color: var(--account-error);
+    margin-left: auto;
+}
+
+.address-actions .delete:hover {
+    color: #c53030;
+}
+
+/* Info de envío */
+.shipping-info {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    background: var(--account-bg);
+    border-radius: 8px;
+}
+
+.shipping-info h4 {
+    color: var(--account-primary);
+    font-size: 1rem;
+    margin: 0 0 0.9375rem 0;
+    font-weight: 600;
+}
+
+.shipping-info p {
+    margin: 0 0 0.625rem 0;
+    font-size: 0.875rem;
+    color: var(--account-text-light);
+}
+
+.shipping-info ul {
+    list-style: none;
+    font-size: 0.875rem;
+    color: var(--account-text-light);
+    padding: 0;
+    margin: 0;
+}
+
+.shipping-info li {
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.shipping-info li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--account-primary);
+}
+
+/* ============================================
+   PÁGINA: MÉTODOS DE PAGO
+   ============================================ */
+
+.payments-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+
+.saved-cards {
+    margin-bottom: 1.875rem;
+}
+
+.payment-card {
+    border: 1px solid var(--account-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.3s;
+}
+
+.payment-card:hover {
+    border-color: var(--account-primary);
+}
+
+.payment-card.default {
+    border-left: 4px solid var(--account-primary);
+    background: var(--account-bg);
+}
+
+/* Visual de tarjeta */
+.card-visual {
+    width: 180px;
+    height: 110px;
+    border-radius: 12px;
+    padding: 1.25rem;
+    color: var(--account-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Courier New', monospace;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.card-visual::before {
+    content: '';
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 40px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.card-visual.visa {
+    background: linear-gradient(135deg, #1a1f71 0%, #0d1250 100%);
+}
+
+.card-visual.mastercard {
+    background: linear-gradient(135deg, #eb001b 0%, #f79e1b 100%);
+}
+
+.card-number {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+}
+
+.payment-info {
+    flex: 1;
+}
+
+.payment-info h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.375rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    color: var(--account-text);
+}
+
+.payment-info p {
+    font-size: 0.8125rem;
+    color: var(--account-text-light);
+    margin: 0;
+}
+
+.payment-actions {
+    display: flex;
+    gap: 0.9375rem;
+}
+
+/* Otros métodos de pago */
+.other-methods h3 {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    margin: 0 0 1.25rem 0;
+    color: var(--account-text);
+}
+
+.payment-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+.payment-option {
+    border: 1px solid var(--account-border);
+    padding: 1.25rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: border-color 0.3s;
+}
+
+.payment-option:hover {
+    border-color: var(--account-primary);
+}
+
+.payment-option-info strong {
+    display: block;
+    font-size: 0.9375rem;
+    margin-bottom: 0.3125rem;
+    color: var(--account-text);
+}
+
+.payment-option-info p {
+    font-size: 0.8125rem;
+    color: var(--account-text-light);
+    margin: 0;
+}
+
+/* Seguridad */
+.security-notice {
+    margin-top: 1.875rem;
+    padding: 1.25rem;
+    background: #f0fff4;
+    border-left: 4px solid var(--account-success);
+    border-radius: 0 8px 8px 0;
+}
+
+.security-notice h4 {
+    color: #22543d;
+    font-size: 0.9375rem;
+    margin: 0 0 0.625rem 0;
+    font-weight: 600;
+}
+
+.security-notice p {
+    font-size: 0.875rem;
+    color: #2f855a;
+    margin: 0;
+}
+
+/* ============================================
+   PÁGINA: CONFIGURACIÓN
+   ============================================ */
+
+.settings-section {
+    margin-bottom: 2.5rem;
+}
+
+.settings-section:last-child {
+    margin-bottom: 0;
+}
+
+.settings-section h3 {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    margin: 0 0 1.25rem 0;
+    color: var(--account-text);
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+/* Apariencia */
+.appearance-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.theme-option {
+    border: 2px solid var(--account-border);
+    padding: 1.25rem;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.theme-option:hover {
+    border-color: var(--account-primary);
+}
+
+.theme-option.active {
+    border-color: var(--account-primary);
+    background: var(--account-bg);
+}
+
+.theme-preview {
+    height: 60px;
+    margin-bottom: 0.625rem;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.theme-preview.light {
+    background: var(--account-white);
+}
+
+.theme-preview.dark {
+    background: #1a1a1a;
+}
+
+.theme-option span {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--account-text);
+}
+
+/* Zona de peligro */
+.danger-zone {
+    background: #fff5f5;
+    border: 1px solid #feb2b2;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.danger-zone h3 {
+    color: #c53030;
+    margin-bottom: 0.625rem;
+}
+
+.danger-zone > p {
+    font-size: 0.8125rem;
+    color: #742a2a;
+    margin-bottom: 1.25rem;
+}
+
+.danger-actions {
+    display: flex;
+    gap: 0.9375rem;
+    flex-wrap: wrap;
+}
+
+/* ============================================
+   LOGIN FORM (para usuarios no logueados)
+   ============================================ */
+
+.account-login {
+    max-width: 500px;
+    margin: 3.75rem auto;
+    text-align: center;
+}
+
+.account-login .account-card {
+    padding: 2.5rem;
+}
+
+.account-login h1 {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    margin-bottom: 0.625rem;
+    color: var(--account-primary);
+}
+
+.account-login > p {
+    color: var(--account-text-light);
+    margin-bottom: 1.875rem;
+}
+
+.login-form {
+    text-align: left;
+}
+
+.login-form .form-row {
+    margin-bottom: 1.25rem;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--account-border);
+    border-radius: 6px;
+    font-size: 0.9375rem;
+}
+
+.login-form input[type="submit"] {
+    width: 100%;
+    background: var(--account-primary);
+    color: var(--account-white);
+    border: none;
+    padding: 1rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background 0.3s;
+}
+
+.login-form input[type="submit"]:hover {
+    background: var(--account-primary-dark);
+}
+
+.login-links {
+    margin-top: 1.25rem;
+    text-align: center;
+}
+
+.login-links a {
+    color: var(--account-primary);
+    font-size: 0.875rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .account-page {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    .account-sidebar {
+        position: static;
+        margin-bottom: 1.25rem;
+    }
+    
+    .account-nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .account-nav li {
+        margin: 0;
+    }
+    
+    .account-nav a {
+        padding: 0.5rem 1rem;
+        font-size: 0.8125rem;
+    }
+    
+    .form-row-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .preferences-grid,
+    .appearance-options,
+    .payment-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .order-header,
+    .order-body {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .order-price {
+        margin-left: 0;
+        margin-top: 0.625rem;
+    }
+    
+    .addresses-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .payment-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .card-visual {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 600px) {
+    .account-main {
+        padding: 1.5rem;
+    }
+    
+    .account-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .orders-tabs {
+        gap: 0.5rem;
+    }
+    
+    .tab-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+    }
+    
+    .order-actions {
+        flex-direction: column;
+    }
+    
+    .account-btn {
+        width: 100%;
+    }
+    
+    .danger-actions {
+        flex-direction: column;
+    }
+}
