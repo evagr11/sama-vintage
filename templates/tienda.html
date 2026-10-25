@@ -79,7 +79,6 @@
 
 <script src="../assets/js/header.js"></script>
 <script src="../assets/js/data.js"></script>
-<script src="../assets/js/header.js"></script>
 <script>
 let todosProductos = [...SAMA_PRODUCTOS];
 
@@ -116,7 +115,7 @@ function renderProductos(productos) {
     grid.innerHTML = productos.map(p => `
         <div class="product-card" onclick="location.href='producto.html?id=${p.id}'">
             <div class="product-image">
-                <img src="../assets/images/${p.img}" alt="${p.nombre}" onerror="this.src='../assets/images/placeholder.svg'">
+                <img loading="lazy" src="../assets/images/${p.img}" alt="${p.nombre}" onerror="this.src='../assets/images/placeholder.svg'">
                 ${p.destacado ? '<span class="product-badge unique">Destacado</span>' : ''}
                 <div class="product-overlay">
                     <button class="quick-action" onclick="event.stopPropagation();addToCart(${p.id})" title="Añadir al carrito">

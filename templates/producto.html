@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 ${relacionados.map(r => `
                     <div class="related-card" onclick="location.href='producto.html?id=${r.id}'">
                         <div class="related-image">
-                            <img src="../assets/images/${r.img}" alt="${r.nombre}" onerror="this.src='../assets/images/placeholder.svg'">
+                            <img loading="lazy" src="../assets/images/${r.img}" alt="${r.nombre}" onerror="this.src='../assets/images/placeholder.svg'">
                             ${r.destacado ? '<span class="related-badge unique">Destacado</span>' : ''}
                         </div>
                         <div class="related-info">

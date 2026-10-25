@@ -35,7 +35,6 @@
 
 .contact-hero {
     background: linear-gradient(135deg, #e2b3b3 0%, #c99a9a 100%);
-    background-image: url('../images/contact-hero.jpg');
     background-size: cover;
     background-position: center;
     padding: 8rem 2rem;

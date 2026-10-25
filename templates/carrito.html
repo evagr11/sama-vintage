@@ -70,7 +70,7 @@ function renderCart() {
                 ${items.map(item => `
                     <div class="cart-item" id="ci-${item.id}">
                         <div class="cart-item-image">
-                            <img src="../assets/images/${item.img}" alt="${item.nombre}" onerror="this.src='../assets/images/placeholder.svg'">
+                            <img loading="lazy" src="../assets/images/${item.img}" alt="${item.nombre}" onerror="this.src='../assets/images/placeholder.svg'">
                         </div>
                         <div class="cart-item-info">
                             <a href="producto.html?id=${item.id}" class="cart-item-name">${item.nombre}</a>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Imagen no disponible">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F5F0E8"/>
+      <stop offset="1" stop-color="#E8DCC8"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#g)"/>
+  <circle cx="200" cy="175" r="46" fill="none" stroke="#C9A227" stroke-width="6"/>
+  <circle cx="200" cy="120" r="12" fill="#8B1E2D"/>
+  <text x="200" y="275" text-anchor="middle" font-family="Georgia, serif" font-size="26" fill="#8B1E2D">Sama Vintage</text>
+  <text x="200" y="305" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#8a7a66">Imagen no disponible</text>
+</svg>

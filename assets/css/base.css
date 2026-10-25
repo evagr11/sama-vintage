@@ -452,3 +452,7 @@ input, textarea, select {
         color: var(--color-text-light);
     }
 }
+/* En móvil la cinta superior solo muestra el primer mensaje para no ocupar media pantalla */
+@media (max-width: 640px) {
+    .trust-ribbon span:not(:first-child) { display: none; }
+}

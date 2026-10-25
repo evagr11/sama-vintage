@@ -70,7 +70,6 @@
 
 <script src="../assets/js/header.js"></script>
 <script src="../assets/js/data.js"></script>
-<script src="../assets/js/header.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     Carrito._updateBadge();
@@ -83,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
     grid.innerHTML = productos.map(p => `
         <a class="product-card" href="producto.html?id=${p.id}">
             <div class="product-image-box">
-                <img src="../assets/images/${p.img}" alt="${p.nombre}" onerror="this.src='../assets/images/placeholder.svg'">
+                <img loading="lazy" src="../assets/images/${p.img}" alt="${p.nombre}" onerror="this.src='../assets/images/placeholder.svg'">
             </div>
             <h3 class="product-title">${p.nombre}</h3>
             <p class="product-price">${formatPrice(p.precio)}</p>
