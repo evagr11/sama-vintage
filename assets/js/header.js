@@ -3,6 +3,10 @@
  * Maneja el menú hamburguesa, búsqueda y comportamiento responsive
  */
 
+/**
+ * Cabecera de la tienda: menú hamburguesa en móvil, buscador a pantalla completa, cierre con Escape y sombra al hacer scroll.
+ * @namespace Cabecera
+ */
 document.addEventListener('DOMContentLoaded', function() {
     
     // Elementos del DOM
@@ -16,6 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // MENÚ HAMBURGUESA
     // ============================================
     
+    /**
+     * Abre el menú móvil y bloquea el scroll de la página.
+     * @memberof Cabecera
+     */
     function openMenu() {
         mainNav.classList.add('active');
         menuToggle.classList.add('active');
@@ -24,6 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.height = '100vh';
     }
     
+    /**
+     * Cierra el menú móvil y devuelve el scroll.
+     * @memberof Cabecera
+     */
     function closeMenu() {
         mainNav.classList.remove('active');
         menuToggle.classList.remove('active');
@@ -32,6 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.height = '';
     }
     
+    /**
+     * Abre o cierra el menú móvil.
+     * @memberof Cabecera
+     */
     function toggleMenu() {
         if (mainNav.classList.contains('active')) {
             closeMenu();
@@ -87,6 +103,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // BÚSQUEDA
     // ============================================
     
+    /**
+     * Abre o cierra el buscador. Es global porque se llama desde el HTML.
+     * @function toggleSearch
+     * @global
+     */
     window.toggleSearch = function() {
         if (!searchOverlay) return;
         

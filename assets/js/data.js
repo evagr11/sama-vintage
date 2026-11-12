@@ -2,6 +2,10 @@
 // Fuente única de datos para el sitio estático de Sama Vintage
 // Precios según web WordPress: proyecto1.ndtvirtual.com
 
+/**
+ * Catálogo de la tienda: 53 piezas con nombre, precio en euros, categoría, si es destacada, fotos y descripción. Es la única fuente de datos de la web estática.
+ * @type {Array<Object>}
+ */
 const SAMA_PRODUCTOS = [
   // ── BROCHES ──────────────────────────────────────────────────────────
   { id:1,  nombre:'Broche Mariposa Dorado',                              precio:90,  categoria:'broches',   destacado:true,
@@ -274,19 +278,38 @@ const SAMA_PRODUCTOS = [
 
 // ── CARRITO (localStorage) ────────────────────────────────────────────
 
+/**
+ * Carrito guardado en `localStorage` (clave `sv_carrito`) como una lista de `{ id, cantidad }`.
+ * @namespace Carrito
+ */
 const Carrito = {
   _key: 'sv_carrito',
 
+  /**
+   * @returns {Array<{id: number, cantidad: number}>} los productos del carrito.
+   * @memberof Carrito
+   */
   getAll() {
     try { return JSON.parse(localStorage.getItem(this._key)) || []; }
     catch { return []; }
   },
 
+  /**
+   * Guarda el carrito y actualiza el contador del icono.
+   * @param {Array<{id: number, cantidad: number}>} items productos.
+   * @memberof Carrito
+   */
   save(items) {
     localStorage.setItem(this._key, JSON.stringify(items));
     this._updateBadge();
   },
 
+  /**
+   * Añade un producto o suma cantidad si ya estaba.
+   * @param {number} productId id del producto.
+   * @param {number} [cantidad=1] unidades.
+   * @memberof Carrito
+   */
   add(productId, cantidad = 1) {
     const items = this.getAll();
     const idx = items.findIndex(i => i.id === productId);
@@ -295,10 +318,21 @@ const Carrito = {
     this.save(items);
   },
 
+  /**
+   * Quita un producto del carrito.
+   * @param {number} productId id del producto.
+   * @memberof Carrito
+   */
   remove(productId) {
     this.save(this.getAll().filter(i => i.id !== productId));
   },
 
+  /**
+   * Cambia la cantidad de un producto; con 0 o menos, lo quita.
+   * @param {number} productId id del producto.
+   * @param {number} cantidad unidades nuevas.
+   * @memberof Carrito
+   */
   update(productId, cantidad) {
     if (cantidad <= 0) { this.remove(productId); return; }
     const items = this.getAll();
@@ -306,10 +340,22 @@ const Carrito = {
     if (idx >= 0) { items[idx].cantidad = cantidad; this.save(items); }
   },
 
+  /**
+   * Vacía el carrito.
+   * @memberof Carrito
+   */
   clear() { localStorage.removeItem(this._key); this._updateBadge(); },
 
+  /**
+   * @returns {number} unidades en el carrito.
+   * @memberof Carrito
+   */
   count() { return this.getAll().reduce((s, i) => s + i.cantidad, 0); },
 
+  /**
+   * @returns {number} importe total en euros.
+   * @memberof Carrito
+   */
   total() {
     return this.getAll().reduce((s, i) => {
       const p = SAMA_PRODUCTOS.find(p => p.id === i.id);
@@ -317,6 +363,10 @@ const Carrito = {
     }, 0);
   },
 
+  /**
+   * @returns {Array<Object>} los productos del carrito con sus datos, la cantidad y el subtotal.
+   * @memberof Carrito
+   */
   items() {
     return this.getAll().map(i => {
       const p = SAMA_PRODUCTOS.find(p => p.id === i.id);
@@ -324,6 +374,11 @@ const Carrito = {
     }).filter(Boolean);
   },
 
+  /**
+   * Actualiza el número del icono del carrito en la cabecera.
+   * @private
+   * @memberof Carrito
+   */
   _updateBadge() {
     const c = this.count();
     document.querySelectorAll('.cart-count, #cartCount').forEach(el => {
@@ -335,14 +390,27 @@ const Carrito = {
 
 // ── HELPERS ───────────────────────────────────────────────────────────
 
+/**
+ * @param {number|string} n importe en euros.
+ * @returns {string} el importe con coma decimal, por ejemplo «90,00 €».
+ */
 function formatPrice(n) {
   return parseFloat(n).toFixed(2).replace('.', ',') + ' €';
 }
 
+/**
+ * @param {string} filename nombre del archivo de la foto.
+ * @param {string} [prefix=""] ruta hasta la raíz, para las páginas de subcarpetas.
+ * @returns {string} ruta de la foto en `assets/images/`.
+ */
 function getImgPath(filename, prefix = '') {
   return `${prefix}assets/images/${filename}`;
 }
 
+/**
+ * Enseña un aviso en la esquina superior derecha durante unos 3 segundos.
+ * @param {string} msg texto del aviso.
+ */
 function mostrarNotificacion(msg) {
   document.querySelectorAll('.sv-notif').forEach(n => n.remove());
   const n = document.createElement('div');

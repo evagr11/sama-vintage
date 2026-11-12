@@ -4,6 +4,7 @@
 
 <div align="center">
   <a href="https://github.com/evagr11/sama-vintage" target="_blank"><img src="https://img.shields.io/badge/Ver_Código-5A0F1B?style=for-the-badge&logo=github&logoColor=white" alt="Ver Código"/></a>
+  <a href="https://evagr11.github.io/sama-vintage/docs/" target="_blank"><img src="https://img.shields.io/badge/Documentación_(JSDoc)-5A0F1B?style=for-the-badge&logo=javascript&logoColor=white" alt="Documentación del código"></a>
   <a href="https://evagr11.github.io/sama-vintage/" target="_blank"><img src="https://img.shields.io/badge/Ver_Web-C9A227?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Ver Web"/></a>
 </div>
 
