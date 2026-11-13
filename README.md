@@ -14,7 +14,7 @@
   <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&size=18&duration=3500&pause=800&color=C9A227&center=true&vCenter=true&width=600&lines=Ecommerce+est%C3%A1tico+de+joyer%C3%ADa+vintage%3B100%25+HTML%2C+CSS+y+JavaScript%3BCarrito+persistente+con+localStorage%3BDise%C3%B1o+en+Figma+y+Canva" alt="Typing SVG"/></a>
 </div>
 
-# 🌸 Sobre el Proyecto
+# Sobre el Proyecto
 
 **Sama Vintage** es un **sitio web estático de joyería vintage**: el rediseño completo de una tienda real, con catálogo de **53 piezas**, ficha de producto, carrito y checkout. Está hecho **sin frameworks**, solo con HTML, CSS y JavaScript, y se publica gratis en GitHub Pages.
 
@@ -23,13 +23,13 @@
   <p><em>Portada de la tienda</em></p>
 </div>
 
-✨ **Características principales:**
+**Características principales:**
 
-*   💍 **Catálogo de 53 piezas** en tres categorías (broches, pendientes y collares), con filtro por categoría y ordenación.
-*   📄 **Una sola plantilla para todos los productos:** la ficha lee el parámetro `?id=` de la URL y pinta los datos y la galería de fotos desde `data.js`.
-*   🧺 **Carrito persistente** con `localStorage`: añadir, quitar, cambiar cantidades y total actualizado, con el contador del icono sincronizado en todas las páginas.
-*   📱 **Responsive** con menú hamburguesa en móvil.
-*   ⚡ **Imágenes optimizadas** en WebP con carga diferida (`loading="lazy"`): todo el catálogo pesa menos de 10 MB.
+*   **Catálogo de 53 piezas** en tres categorías (broches, pendientes y collares), con filtro por categoría y ordenación.
+*   **Una sola plantilla para todos los productos:** la ficha lee el parámetro `?id=` de la URL y pinta los datos y la galería de fotos desde `data.js`.
+*   **Carrito persistente** con `localStorage`: añadir, quitar, cambiar cantidades y total actualizado, con el contador del icono sincronizado en todas las páginas.
+*   **Responsive** con menú hamburguesa en móvil.
+*   **Imágenes optimizadas** en WebP con carga diferida (`loading="lazy"`): todo el catálogo pesa menos de 10 MB.
 
 ### Galería
 
@@ -43,7 +43,7 @@
   <p><em>Versión móvil</em></p>
 </div>
 
-# 🧠 Contexto del Proyecto
+# Contexto del Proyecto
 
 Este proyecto surge como parte del módulo **SGE (Sistemas de Gestión Empresarial)** del segundo curso de **DAM**.
 
@@ -52,7 +52,7 @@ El objetivo era realizar el **rebranding completo de una web real existente**:
 
 El proyecto original se desarrolló en **WordPress**, pero después decidí **rehacerlo desde cero como sitio estático** para conservarlo en GitHub sin depender de un CMS, mostrar la implementación frontend pura y mantenerlo en mi portfolio. Este repositorio es esa **versión reconstruida**.
 
-# 👥 Proyecto Original (WordPress)
+# Proyecto Original (WordPress)
 
 La primera versión se hizo en equipo junto a:
 
@@ -67,7 +67,7 @@ La primera versión se hizo en equipo junto a:
 
 Trabajamos de forma colaborativa tanto en el **diseño**, el **prototipado** y la **implementación del sitio en WordPress**.
 
-### ⚙️ Plugins utilizados
+### Plugins utilizados
 
 Para implementar funcionalidades en WordPress se utilizaron varios plugins:
 
@@ -77,7 +77,7 @@ Para implementar funcionalidades en WordPress se utilizaron varios plugins:
 - **Simple Custom CSS and JS**
 - **WooCommerce**
 
-# 🛠️ Tecnologías
+# Tecnologías
 
 <p align="center">
 <img src="https://img.shields.io/badge/HTML5-5A0F1B?style=for-the-badge&logo=html5&logoColor=white"/>
@@ -97,11 +97,11 @@ Para implementar funcionalidades en WordPress se utilizaron varios plugins:
 <img src="https://img.shields.io/badge/WordPress-8B1E2D?style=for-the-badge&logo=wordpress&logoColor=white"/>
 </p>
 
-# 🎨 Proceso de Diseño
+# Proceso de Diseño
 
 El proyecto no solo incluye desarrollo web, sino también el **proceso completo de diseño UI/UX**.
 
-### 📖 Guía de estilos
+### Guía de estilos
 
 Se diseñó una **guía de estilos completa en Canva**, donde se definieron:
 
@@ -110,7 +110,7 @@ Se diseñó una **guía de estilos completa en Canva**, donde se definieron:
 - Estética visual de la marca
 - Componentes de interfaz
 
-### 🧩 Prototipado
+### Prototipado
 
 Los prototipos de la web fueron diseñados en **Figma**, incluyendo:
 
@@ -120,16 +120,16 @@ Los prototipos de la web fueron diseñados en **Figma**, incluyendo:
 
 Esto permitió definir la experiencia de usuario antes de implementar el código.
 
-### 💻 Implementación
+### Implementación
 
 Finalmente, la web fue implementada en dos fases:
 
-1️⃣ **Versión original en WordPress** (proyecto académico)  
-2️⃣ **Reconstrucción en HTML/CSS/JS puro** para esta versión del repositorio
+1**Versión original en WordPress** (proyecto académico)  
+2**Reconstrucción en HTML/CSS/JS puro** para esta versión del repositorio
 
 ---
 
-# 🧩 Arquitectura del Proyecto
+# Arquitectura del Proyecto
 
 ```bash
 sama-vintage/
@@ -158,31 +158,31 @@ sama-vintage/
         └── perfil.html
 ```
 
-# 🛒 Funcionalidades
+# Funcionalidades
 
-### 🛍️ Catálogo de productos
+### Catálogo de productos
 - Visualización de todos los artículos disponibles
 - Organización por categorías (broches, pendientes, collares)
 - Navegación simple y clara
 
-### 📄 Página de producto
+### Página de producto
 - Cada producto tiene su **vista detallada**
 - Los datos se cargan dinámicamente leyendo el parámetro `?id=` de la URL
 - Reutilización de la misma plantilla para todos los productos
 
-### 🧺 Carrito persistente
+### Carrito persistente
 - Añadir y eliminar productos
 - Actualización automática del total
 - Guardado en **localStorage**
 - Persistencia entre páginas y recargas
 - Checkout con resumen del pedido (simulado, sin pago real)
 
-### 📱 Diseño responsive
+### Diseño responsive
 - Navegación adaptable
 - Menú responsive controlado con JavaScript
 - Compatible con móvil, tablet y escritorio
 
-# 🚀 Cómo Utilizar el Proyecto
+# Cómo Utilizar el Proyecto
 
 ### 1. Verlo online
 
@@ -200,7 +200,7 @@ sama-vintage/
     ```
 3.  Abre `index.html` en el navegador, o levanta un servidor con `python -m http.server` y entra en `http://localhost:8000`.
 
-# 📚 Lo que aprendí con este proyecto
+# Lo que aprendí con este proyecto
 
 - Organización de proyectos **frontend sin frameworks**
 - Manipulación del **DOM con JavaScript vanilla**
@@ -208,13 +208,6 @@ sama-vintage/
 - Arquitectura de páginas reutilizables
 - Deploy automático con **GitHub Pages**
 - Optimizar imágenes para la web (de 171 MB en PNG a menos de 10 MB en WebP)
-
-# 🎯 Mejoras futuras
-
-- 🔎 Sistema de búsqueda de productos  
-- 🎨 Animaciones UI y microinteracciones  
-- 🛍️ Integración con backend real  
-- 💳 Checkout funcional
 
 <br>
 
